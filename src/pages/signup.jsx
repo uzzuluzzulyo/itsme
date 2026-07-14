@@ -10,9 +10,6 @@ import GlowCard from '../components/ui/glow-card.jsx';
 import { supabase } from '../lib/supabase.js';
 import { login } from '../lib/auth.js';
 
-const ADMIN_ID = 'itsme';
-const ADMIN_PASSWORD = 'itsme';
-
 const inputSx = {
   '& .MuiOutlinedInput-root': {
     bgcolor: 'background.default',
@@ -24,37 +21,54 @@ const inputSx = {
   '& .MuiInputLabel-root': { color: 'text.secondary' },
 };
 
-function Login() {
+function Signup() {
   const navigate = useNavigate();
-  const [id, setId] = useState('');
+  const [nickname, setNickname] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  async function handleLogin() {
+  async function handleSignup() {
     setError('');
 
-    if (id === ADMIN_ID && password === ADMIN_PASSWORD) {
-      login();
-      navigate('/');
+    if (!nickname || !email || !password) {
+      setError('모든 항목을 입력해주세요.');
+      return;
+    }
+    if (password !== passwordConfirm) {
+      setError('비밀번호가 일치하지 않습니다.');
       return;
     }
 
     setSubmitting(true);
-    const { data } = await supabase
+
+    const { data: existing } = await supabase
       .from('itsme_users')
       .select('id')
-      .eq('email', id)
-      .eq('password', password)
+      .eq('email', email)
       .maybeSingle();
+
+    if (existing) {
+      setError('이미 사용 중인 이메일입니다.');
+      setSubmitting(false);
+      return;
+    }
+
+    const { error: insertError } = await supabase
+      .from('itsme_users')
+      .insert({ nickname, email, password });
+
     setSubmitting(false);
 
-    if (data) {
-      login();
-      navigate('/');
-    } else {
-      setError('아이디 또는 비밀번호가 올바르지 않습니다.');
+    if (insertError) {
+      setError('회원가입에 실패했습니다. 잠시 후 다시 시도해주세요.');
+      return;
     }
+
+    login();
+    navigate('/');
   }
 
   return (
@@ -81,13 +95,20 @@ function Login() {
                 textShadow: (theme) => `0 0 24px ${theme.palette.primary.main}55`,
               }}
             >
-              로그인
+              회원가입
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
               <TextField
-                label="아이디"
-                value={id}
-                onChange={(event) => setId(event.target.value)}
+                label="닉네임"
+                value={nickname}
+                onChange={(event) => setNickname(event.target.value)}
+                sx={inputSx}
+              />
+              <TextField
+                label="이메일"
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
                 sx={inputSx}
               />
               <TextField
@@ -97,13 +118,20 @@ function Login() {
                 onChange={(event) => setPassword(event.target.value)}
                 sx={inputSx}
               />
+              <TextField
+                label="비밀번호 확인"
+                type="password"
+                value={passwordConfirm}
+                onChange={(event) => setPasswordConfirm(event.target.value)}
+                sx={inputSx}
+              />
               {error && (
                 <Typography sx={{ color: 'secondary.main', fontSize: '0.85rem' }}>
                   {error}
                 </Typography>
               )}
               <Button
-                onClick={handleLogin}
+                onClick={handleSignup}
                 disabled={submitting}
                 variant="contained"
                 size="large"
@@ -116,14 +144,14 @@ function Login() {
                   '&:hover': { bgcolor: 'primary.dark' },
                 }}
               >
-                {submitting ? '확인 중...' : '로그인'}
+                {submitting ? '가입 중...' : '회원가입'}
               </Button>
               <Typography
                 component={NavLink}
-                to="/signup"
+                to="/login"
                 sx={{ color: 'text.secondary', fontSize: '0.85rem', textDecoration: 'none', mt: 1 }}
               >
-                계정이 없으신가요? 회원가입
+                이미 계정이 있으신가요? 로그인
               </Typography>
             </Box>
           </CardContent>
@@ -133,4 +161,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
