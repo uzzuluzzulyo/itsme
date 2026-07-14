@@ -34,7 +34,7 @@ function Footer() {
         itsme
       </Typography>
       <Typography sx={{ color: 'text.disabled', fontSize: '0.85rem' }}>
-        © 2026 itsme. 주제는 아직 고민 중입니다.
+        © 2026 깡의 포트폴리오.
       </Typography>
       <Box sx={{ display: 'flex', gap: 1 }}>
         <IconButton size="small" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' } }}>

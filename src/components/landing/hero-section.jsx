@@ -33,7 +33,7 @@ function HeroSection() {
             textShadow: (theme) => `0 0 40px ${theme.palette.primary.main}55`,
           }}
         >
-          itsme
+          깡의 포트폴리오
         </Typography>
         <Typography
           sx={{
@@ -43,8 +43,8 @@ function HeroSection() {
             mb: 4,
           }}
         >
-          어떤 주제로 채울지는 아직 고민 중이에요. 어둠 속에서 은은하게 빛나는,
-          깔끔하고 모던한 커뮤니티를 먼저 준비하고 있습니다.
+          어둠 속에서 은은하게 빛나는, 깔끔하고 모던한 톤으로 만든
+          깡의 개인 포트폴리오 공간입니다.
         </Typography>
         <Button
           component={NavLink}
@@ -65,7 +65,7 @@ function HeroSection() {
             },
           }}
         >
-          게시물 둘러보기
+          프로젝트 보기
         </Button>
       </Container>
     </Box>
