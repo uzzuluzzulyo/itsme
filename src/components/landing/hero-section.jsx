@@ -58,10 +58,8 @@ function HeroSection() {
             px: 4,
             py: 1.2,
             borderRadius: 2,
-            boxShadow: (theme) => `0 0 28px ${theme.palette.primary.main}88`,
             '&:hover': {
               bgcolor: 'primary.dark',
-              boxShadow: (theme) => `0 0 40px ${theme.palette.primary.main}`,
             },
           }}
         >

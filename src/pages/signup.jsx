@@ -140,7 +140,6 @@ function Signup() {
                   color: 'primary.contrastText',
                   fontWeight: 700,
                   mt: 1,
-                  boxShadow: (theme) => `0 0 24px ${theme.palette.primary.main}77`,
                   '&:hover': { bgcolor: 'primary.dark' },
                 }}
               >

@@ -62,7 +62,6 @@ function Navbar() {
                     height: '3px',
                     borderRadius: '2px',
                     backgroundColor: 'primary.main',
-                    boxShadow: (theme) => `0 0 10px ${theme.palette.primary.main}`,
                   },
                 },
               }}

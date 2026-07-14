@@ -57,7 +57,6 @@ function Posts() {
                       color: 'primary.main',
                       borderColor: 'primary.main',
                       borderRadius: 2,
-                      '&:hover': { boxShadow: (theme) => `0 0 16px ${theme.palette.primary.main}66` },
                     }}
                   >
                     {project.link ? '보러가기' : '비공개 저장소'}
