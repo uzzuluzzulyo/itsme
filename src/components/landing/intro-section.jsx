@@ -5,9 +5,9 @@ import GlowCard from '../ui/glow-card.jsx';
 import CardContent from '@mui/material/CardContent';
 
 const features = [
-  { title: '리뷰 공유', desc: '신제품 개봉기부터 장기 사용 후기까지 자유롭게 공유해요.' },
-  { title: '스펙 토론', desc: '스펙 비교와 구매 상담을 함께 나누는 공간이에요.' },
-  { title: '커뮤니티', desc: '좋아요와 댓글로 취향이 비슷한 사람들과 소통해요.' },
+  { title: '주제 미정', desc: '어떤 이야기를 나눌 공간이 될지 아직 정하지 않았어요.' },
+  { title: '기능 미정', desc: '좋아요·댓글 등 기본 기능만 먼저 만들어뒀어요.' },
+  { title: '커뮤니티', desc: '주제가 정해지면 이 자리가 채워질 예정이에요.' },
 ];
 
 function IntroSection() {
