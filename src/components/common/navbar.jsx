@@ -72,23 +72,6 @@ function Navbar() {
           ))}
           <Button
             component={NavLink}
-            to="/posts"
-            variant="contained"
-            size="small"
-            sx={{
-              display: { xs: 'none', sm: 'inline-flex' },
-              bgcolor: 'primary.main',
-              color: 'primary.contrastText',
-              fontWeight: 700,
-              borderRadius: 2,
-              boxShadow: (theme) => `0 0 16px ${theme.palette.primary.main}66`,
-              '&:hover': { bgcolor: 'primary.dark' },
-            }}
-          >
-            글쓰기
-          </Button>
-          <Button
-            component={NavLink}
             to="/login"
             sx={{
               color: 'text.secondary',
