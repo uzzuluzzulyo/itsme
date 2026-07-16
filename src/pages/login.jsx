@@ -10,9 +10,6 @@ import GlowCard from '../components/ui/glow-card.jsx';
 import { supabase } from '../lib/supabase.js';
 import { login } from '../lib/auth.js';
 
-const ADMIN_ID = 'itsme';
-const ADMIN_PASSWORD = 'itsme';
-
 const inputSx = {
   '& .MuiOutlinedInput-root': {
     bgcolor: 'background.default',
@@ -33,13 +30,6 @@ function Login() {
 
   async function handleLogin() {
     setError('');
-
-    if (id === ADMIN_ID && password === ADMIN_PASSWORD) {
-      login();
-      navigate('/');
-      return;
-    }
-
     setSubmitting(true);
     const { data } = await supabase
       .from('itsme_users')
