@@ -7,6 +7,8 @@ import About from './pages/about.jsx';
 import Posts from './pages/posts.jsx';
 import Login from './pages/login.jsx';
 import Signup from './pages/signup.jsx';
+import FindId from './pages/find-id.jsx';
+import FindPassword from './pages/find-password.jsx';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/find-id" element={<FindId />} />
+        <Route path="/find-password" element={<FindPassword />} />
         <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
         <Route path="/about" element={<RequireAuth><About /></RequireAuth>} />
         <Route path="/posts" element={<RequireAuth><Posts /></RequireAuth>} />
