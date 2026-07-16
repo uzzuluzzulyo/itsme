@@ -132,9 +132,17 @@ function Guestbook() {
           {entries.map((entry) => (
             <GlowCard key={entry.id} sx={{ p: 2 }}>
               <CardContent sx={{ p: '8px !important' }}>
-                <Stack direction="row" justifyContent="space-between" alignItems="baseline" sx={{ mb: 1 }}>
-                  <Typography sx={{ color: 'text.primary', fontWeight: 700 }}>{entry.name}</Typography>
-                  <Typography sx={{ color: 'text.secondary', fontSize: '0.75rem' }}>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="baseline"
+                  spacing={2}
+                  sx={{ mb: 1, flexWrap: 'wrap', rowGap: 0.5 }}
+                >
+                  <Typography sx={{ color: 'text.primary', fontWeight: 700, wordBreak: 'break-word' }}>
+                    {entry.name}
+                  </Typography>
+                  <Typography sx={{ color: 'text.secondary', fontSize: '0.75rem', whiteSpace: 'nowrap', flexShrink: 0 }}>
                     {new Date(entry.created_at).toLocaleString('ko-KR', {
                       dateStyle: 'medium',
                       timeStyle: 'short',
