@@ -7,8 +7,9 @@ import { NavLink } from 'react-router-dom';
 
 const navItems = [
   { label: 'HOME', path: '/', end: true },
-  { label: 'ABOUT ME', path: '/about' },
-  { label: 'PROJECTS', path: '/posts' },
+  { label: 'MEMBERS', path: '/members' },
+  { label: 'BOARD', path: '/board' },
+  { label: 'ABOUT', path: '/about' },
 ];
 
 function Navbar() {
@@ -35,7 +36,7 @@ function Navbar() {
             textShadow: (theme) => `0 0 18px ${theme.palette.primary.main}66`,
           }}
         >
-          itsme
+          WISHPLAY
         </Typography>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1.5, md: 3 } }}>

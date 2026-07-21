@@ -4,7 +4,8 @@ import Footer from './components/common/footer.jsx';
 import RequireAuth from './components/common/require-auth.jsx';
 import Home from './pages/home.jsx';
 import About from './pages/about.jsx';
-import Posts from './pages/posts.jsx';
+import Members from './pages/members.jsx';
+import Board from './pages/board.jsx';
 import Login from './pages/login.jsx';
 import Signup from './pages/signup.jsx';
 import FindId from './pages/find-id.jsx';
@@ -21,7 +22,8 @@ function App() {
         <Route path="/find-password" element={<FindPassword />} />
         <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
         <Route path="/about" element={<RequireAuth><About /></RequireAuth>} />
-        <Route path="/posts" element={<RequireAuth><Posts /></RequireAuth>} />
+        <Route path="/members" element={<RequireAuth><Members /></RequireAuth>} />
+        <Route path="/board" element={<RequireAuth><Board /></RequireAuth>} />
       </Routes>
       <Footer />
     </>

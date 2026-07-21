@@ -4,26 +4,26 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#5EEAD4',
-      light: '#99F6E4',
-      dark: '#2DD4BF',
-      contrastText: '#04110F',
+      main: '#4FC3F7',
+      light: '#81D4FA',
+      dark: '#0288D1',
+      contrastText: '#04141F',
     },
     secondary: {
-      main: '#60A5FA',
-      dark: '#3B82F6',
-      contrastText: '#04110F',
+      main: '#7C4DFF',
+      dark: '#5E35B1',
+      contrastText: '#FFFFFF',
     },
     background: {
-      default: '#07080C',
-      paper: '#12141C',
+      default: '#07090F',
+      paper: '#121826',
     },
     text: {
       primary: '#F2F4F8',
       secondary: '#8A93A6',
       disabled: '#4B5265',
     },
-    divider: 'rgba(94, 234, 212, 0.12)',
+    divider: 'rgba(79, 195, 247, 0.14)',
   },
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',

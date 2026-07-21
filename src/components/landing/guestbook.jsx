@@ -32,7 +32,7 @@ function Guestbook() {
   const fetchEntries = async () => {
     setLoading(true);
     const { data, error: fetchError } = await supabase
-      .from('guestbook')
+      .from('itsme_guestbook')
       .select('*')
       .order('created_at', { ascending: false })
       .limit(50);
@@ -57,7 +57,7 @@ function Guestbook() {
     setError('');
 
     const { error: insertError } = await supabase
-      .from('guestbook')
+      .from('itsme_guestbook')
       .insert({ name: name.trim(), message: message.trim() });
 
     if (insertError) {
@@ -73,7 +73,7 @@ function Guestbook() {
   return (
     <Box sx={{ width: '100%', textAlign: 'left' }}>
       <Typography variant="h5" sx={{ color: 'text.primary', fontWeight: 700, mb: 3, textAlign: 'center' }}>
-        방명록
+        위시에게 한마디
       </Typography>
 
       <GlowCard sx={{ p: { xs: 2, md: 3 }, mb: 4 }}>

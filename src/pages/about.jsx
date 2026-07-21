@@ -29,10 +29,12 @@ function About() {
                 textShadow: (theme) => `0 0 24px ${theme.palette.primary.main}55`,
               }}
             >
-              About Me
+              About
             </Typography>
             <Typography sx={{ color: 'text.secondary', fontSize: { xs: '1rem', md: '1.2rem' }, lineHeight: 1.6 }}>
-              About Me 페이지가 개발될 공간입니다. 상세한 자기소개가 들어갈 예정입니다.
+              WISHPLAY는 NCT WISH를 응원하는 팬들이 자유롭게 소식을 나누고 이야기할 수 있는
+              비공식 팬 커뮤니티입니다. 멤버 소개부터 자유게시판, 굿즈거래, 팬아트까지
+              위시들과 함께 채워가요.
             </Typography>
           </CardContent>
         </GlowCard>

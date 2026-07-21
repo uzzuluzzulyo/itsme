@@ -33,7 +33,7 @@ function HeroSection() {
             textShadow: (theme) => `0 0 40px ${theme.palette.primary.main}55`,
           }}
         >
-          깡의 포트폴리오
+          WISHPLAY
         </Typography>
         <Typography
           sx={{
@@ -43,12 +43,12 @@ function HeroSection() {
             mb: 4,
           }}
         >
-          어둠 속에서 은은하게 빛나는, 깔끔하고 모던한 톤으로 만든
-          깡의 개인 포트폴리오 공간입니다.
+          NCT WISH와 함께하는 팬 커뮤니티. 멤버 소식을 나누고,
+          위시들과 자유롭게 이야기해요.
         </Typography>
         <Button
           component={NavLink}
-          to="/posts"
+          to="/board"
           variant="contained"
           size="large"
           sx={{
@@ -63,7 +63,7 @@ function HeroSection() {
             },
           }}
         >
-          프로젝트 보기
+          게시판 가기
         </Button>
       </Container>
     </Box>

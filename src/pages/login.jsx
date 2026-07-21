@@ -40,7 +40,7 @@ function Login() {
     setSubmitting(false);
 
     if (data) {
-      login();
+      login(data.id);
       navigate('/');
     } else {
       setError('아이디 또는 비밀번호가 올바르지 않습니다.');
@@ -107,13 +107,6 @@ function Login() {
               >
                 {submitting ? '확인 중...' : '로그인'}
               </Button>
-              <Typography
-                component={NavLink}
-                to="/signup"
-                sx={{ color: 'text.secondary', fontSize: '0.85rem', textDecoration: 'none', mt: 1 }}
-              >
-                계정이 없으신가요? 회원가입
-              </Typography>
               <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
                 <Typography
                   component={NavLink}

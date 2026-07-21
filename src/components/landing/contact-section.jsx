@@ -19,7 +19,7 @@ function ContactSection() {
         Contact
       </Typography>
       <Typography sx={{ color: 'text.secondary', fontSize: { xs: '1rem', md: '1.2rem' }, lineHeight: 1.6, mb: 4 }}>
-        편하게 이메일로 연락 주시거나, 방명록에 메시지를 남겨주세요.
+        운영자에게 하고 싶은 말이 있다면 이메일로 연락 주시거나, 아래에 메시지를 남겨주세요.
       </Typography>
       <ContactInfoCard />
       <Guestbook />
