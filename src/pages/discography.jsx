@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import AlbumCard from '../components/ui/album-card.jsx';
 import AlbumDetailDialog from '../components/ui/album-detail-dialog.jsx';
+import StarfieldBackground from '../components/ui/starfield-background.jsx';
 import { albums } from '../utils/albums.js';
 
 const sortedAlbums = [...albums].sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
@@ -13,8 +14,10 @@ function Discography() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <Box sx={{ width: '100%', py: { xs: 4, md: 8 }, px: { xs: 2, md: 3 } }}>
-      <Container maxWidth="lg">
+    <Box sx={{ width: '100%', position: 'relative', py: { xs: 4, md: 8 }, px: { xs: 2, md: 3 }, overflow: 'hidden' }}>
+      <StarfieldBackground />
+
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <Typography
           variant="h4"
           sx={{ color: 'text.primary', fontWeight: 800, mb: 1, textAlign: 'center', fontSize: { xs: '1.6rem', md: '2.1rem' } }}
