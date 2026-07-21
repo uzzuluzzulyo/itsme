@@ -6,7 +6,10 @@
  * 비영리 팬 프로젝트 용도로 사실 정보를 재정리했습니다.)
  *
  * color/doll/symbol은 SM에서 공개한 공식 WISH DOLL 캐릭터 기준입니다.
+ * imageUrl이 있으면 MemberAvatar가 사진을, 없으면 WISH DOLL 이모지를 보여준다.
  */
+import rikuPhoto from '../assets/members/riku.jpg';
+
 export const members = [
   {
     id: 'sion',
@@ -39,6 +42,7 @@ export const members = [
     position: '메인 래퍼',
     trainingPeriod: '약 1년',
     color: '#EF5350',
+    imageUrl: rikuPhoto,
     doll: { name: '쿠리', symbol: '다람쥐', emoji: '🐿️' },
     hobby: '작사, 운동',
     funFacts: [
