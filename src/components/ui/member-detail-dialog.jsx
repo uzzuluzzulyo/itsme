@@ -7,7 +7,9 @@ import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import MemberAvatar from './member-avatar.jsx';
+import { members } from '../../utils/members.js';
 
 function formatBirthDate(dateString) {
   const [year, month, day] = dateString.split('-');
@@ -29,8 +31,12 @@ function formatBirthDate(dateString) {
 function MemberDetailDialog({ member, onClose }) {
   if (!member) return null;
 
+  const closeMembers = (member.closeWith ?? [])
+    .map((id) => members.find((item) => item.id === id))
+    .filter(Boolean);
+
   return (
-    <Dialog open={Boolean(member)} onClose={onClose} maxWidth="xs" fullWidth>
+    <Dialog open={Boolean(member)} onClose={onClose} maxWidth="xs" fullWidth scroll="paper">
       <DialogContent sx={{ p: { xs: 2.5, md: 3.5 } }}>
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 0.5 }}>
           <IconButton onClick={onClose} size="small" sx={{ color: 'text.secondary' }}>
@@ -54,15 +60,52 @@ function MemberDetailDialog({ member, onClose }) {
           <Chip label={formatBirthDate(member.birthDate)} size="small" variant="outlined" sx={{ borderColor: 'divider', color: 'text.secondary' }} />
         </Stack>
 
-        <Stack spacing={1.25} sx={{ mb: 2.5 }}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 2, rowGap: 1, mb: 2.5 }}>
+          <InfoRow label="키" value={member.height} />
+          <InfoRow label="몸무게" value={member.weight} />
+          <InfoRow label="혈액형" value={member.bloodType} />
+          <InfoRow label="MBTI" value={member.mbti} />
+          <InfoRow label="별자리" value={member.zodiac} />
+          <InfoRow label="띠" value={member.chineseZodiac} />
           <InfoRow label="출신" value={member.hometown} />
-          <InfoRow label="연습생 기간" value={member.trainingPeriod} />
-          <InfoRow label="취미" value={member.hobby} />
-          <InfoRow
-            label="WISH DOLL"
-            value={`${member.doll.emoji} ${member.doll.name} (${member.doll.symbol})`}
-          />
-        </Stack>
+          <InfoRow label="연습 기간" value={member.trainingPeriod} />
+          <InfoRow label="숙소" value={member.dorm} />
+          <InfoRow label="롤모델" value={member.roleModel} />
+          <InfoRow label="최애곡" value={member.favoriteSong !== '-' ? member.favoriteSong : null} />
+        </Box>
+
+        <Box sx={{ mb: 2.5 }}>
+          <Typography sx={{ color: 'text.disabled', fontSize: '0.82rem', mb: 0.5 }}>취미</Typography>
+          <Typography sx={{ color: 'text.primary', fontSize: '0.85rem', fontWeight: 600 }}>{member.hobby}</Typography>
+        </Box>
+
+        <Box sx={{ mb: 2.5 }}>
+          <Typography sx={{ color: 'text.disabled', fontSize: '0.82rem', mb: 0.5 }}>WISH DOLL</Typography>
+          <Typography sx={{ color: 'text.primary', fontSize: '0.85rem', fontWeight: 600 }}>
+            {member.doll.emoji} {member.doll.name} ({member.doll.symbol})
+          </Typography>
+        </Box>
+
+        {closeMembers.length > 0 && (
+          <Box sx={{ mb: 2.5 }}>
+            <Stack direction="row" alignItems="center" spacing={0.5} sx={{ mb: 1 }}>
+              <FavoriteRoundedIcon sx={{ fontSize: 15, color: 'secondary.main' }} />
+              <Typography sx={{ color: 'text.primary', fontWeight: 700, fontSize: '0.85rem' }}>
+                케미가 좋은 멤버
+              </Typography>
+            </Stack>
+            <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+              {closeMembers.map((friend) => (
+                <Chip
+                  key={friend.id}
+                  label={`${friend.doll.emoji} ${friend.stageName}`}
+                  size="small"
+                  sx={{ bgcolor: `${friend.color}22`, color: friend.color, fontWeight: 700 }}
+                />
+              ))}
+            </Stack>
+          </Box>
+        )}
 
         <Divider sx={{ borderColor: 'divider', mb: 2 }} />
 
@@ -94,10 +137,11 @@ function MemberDetailDialog({ member, onClose }) {
 }
 
 function InfoRow({ label, value }) {
+  if (!value) return null;
   return (
-    <Stack direction="row" justifyContent="space-between">
-      <Typography sx={{ color: 'text.disabled', fontSize: '0.82rem' }}>{label}</Typography>
-      <Typography sx={{ color: 'text.primary', fontSize: '0.82rem', fontWeight: 600, textAlign: 'right' }}>
+    <Stack direction="row" justifyContent="space-between" spacing={1}>
+      <Typography sx={{ color: 'text.disabled', fontSize: '0.8rem', whiteSpace: 'nowrap' }}>{label}</Typography>
+      <Typography sx={{ color: 'text.primary', fontSize: '0.8rem', fontWeight: 600, textAlign: 'right' }}>
         {value}
       </Typography>
     </Stack>
