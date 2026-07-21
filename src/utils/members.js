@@ -9,7 +9,12 @@
  * imageUrl이 있으면 MemberAvatar가 사진을, 없으면 WISH DOLL 이모지를 보여준다.
  * closeWith는 다른 멤버 id 배열로, 상세 다이얼로그의 "케미" 영역에서 사용한다.
  */
+import sionPhoto from '../assets/members/sion.webp';
 import rikuPhoto from '../assets/members/riku.jpg';
+import yushiPhoto from '../assets/members/yushi.webp';
+import jaeheePhoto from '../assets/members/jaehee.webp';
+import ryoPhoto from '../assets/members/ryo.webp';
+import sakuyaPhoto from '../assets/members/sakuya.webp';
 
 export const members = [
   {
@@ -23,6 +28,7 @@ export const members = [
     position: '리더, 리드보컬',
     trainingPeriod: '약 4년',
     color: '#A78BFA',
+    imageUrl: sionPhoto,
     doll: { name: '시오닝', symbol: '튤립', emoji: '🌷' },
     height: '179cm',
     weight: '57.5kg',
@@ -93,6 +99,7 @@ export const members = [
     position: '메인 댄서',
     trainingPeriod: '약 7년',
     color: '#4FC3F7',
+    imageUrl: yushiPhoto,
     doll: { name: '버블냥', symbol: '고양이 × 물범(버블티 콘셉트)', emoji: '🐱' },
     height: '175cm',
     weight: '59.8kg',
@@ -128,6 +135,7 @@ export const members = [
     position: '메인보컬',
     trainingPeriod: '약 3개월',
     color: '#66BB6A',
+    imageUrl: jaeheePhoto,
     doll: { name: '댕트리버', symbol: '나무 모양 꼬리를 가진 리트리버', emoji: '🌳' },
     height: '185cm',
     weight: '67kg',
@@ -163,6 +171,7 @@ export const members = [
     position: '서브보컬',
     trainingPeriod: '약 1년',
     color: '#FFCA28',
+    imageUrl: ryoPhoto,
     doll: { name: '론론', symbol: '강아지', emoji: '🐶' },
     height: '165.4cm',
     weight: '52.4kg',
@@ -196,6 +205,7 @@ export const members = [
     position: '리드래퍼, 서브보컬, 막내',
     trainingPeriod: '약 1년',
     color: '#F06292',
+    imageUrl: sakuyaPhoto,
     doll: { name: '팡이', symbol: '별 모양 날개를 가진 빵', emoji: '🥐' },
     height: '176cm',
     weight: '57.5kg',
