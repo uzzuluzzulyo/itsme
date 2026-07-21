@@ -7,9 +7,7 @@ import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import MemberAvatar from './member-avatar.jsx';
-import { members } from '../../utils/members.js';
 
 function formatBirthDate(dateString) {
   const [year, month, day] = dateString.split('-');
@@ -30,10 +28,6 @@ function formatBirthDate(dateString) {
  */
 function MemberDetailDialog({ member, onClose }) {
   if (!member) return null;
-
-  const closeMembers = (member.closeWith ?? [])
-    .map((id) => members.find((item) => item.id === id))
-    .filter(Boolean);
 
   return (
     <Dialog open={Boolean(member)} onClose={onClose} maxWidth="xs" fullWidth scroll="paper">
@@ -85,27 +79,6 @@ function MemberDetailDialog({ member, onClose }) {
             {member.doll.emoji} {member.doll.name} ({member.doll.symbol})
           </Typography>
         </Box>
-
-        {closeMembers.length > 0 && (
-          <Box sx={{ mb: 2.5 }}>
-            <Stack direction="row" alignItems="center" spacing={0.5} sx={{ mb: 1 }}>
-              <FavoriteRoundedIcon sx={{ fontSize: 15, color: 'secondary.main' }} />
-              <Typography sx={{ color: 'text.primary', fontWeight: 700, fontSize: '0.85rem' }}>
-                케미가 좋은 멤버
-              </Typography>
-            </Stack>
-            <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-              {closeMembers.map((friend) => (
-                <Chip
-                  key={friend.id}
-                  label={`${friend.doll.emoji} ${friend.stageName}`}
-                  size="small"
-                  sx={{ bgcolor: `${friend.color}22`, color: friend.color, fontWeight: 700 }}
-                />
-              ))}
-            </Stack>
-          </Box>
-        )}
 
         <Divider sx={{ borderColor: 'divider', mb: 2 }} />
 

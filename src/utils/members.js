@@ -7,7 +7,6 @@
  *
  * color/doll/symbol은 SM에서 공개한 공식 WISH DOLL 캐릭터 기준입니다.
  * imageUrl이 있으면 MemberAvatar가 사진을, 없으면 WISH DOLL 이모지를 보여준다.
- * closeWith는 다른 멤버 id 배열로, 상세 다이얼로그의 "케미" 영역에서 사용한다.
  */
 import sionPhoto from '../assets/members/sion.webp';
 import rikuPhoto from '../assets/members/riku.jpg';
@@ -37,7 +36,6 @@ export const members = [
     chineseZodiac: '말띠',
     mbti: 'INTJ-A',
     dorm: '1인실',
-    closeWith: [],
     hobby: '독서, 애니메이션·드라마 감상, 볼링',
     roleModel: 'EXO 카이',
     favoriteSong: 'NCT "We Go Up"',
@@ -73,7 +71,6 @@ export const members = [
     chineseZodiac: '양띠',
     mbti: 'ISFP',
     dorm: '1인실',
-    closeWith: [],
     hobby: '애니메이션·영화 감상',
     roleModel: 'NCT 마크',
     favoriteSong: 'NCT "We Go Up"',
@@ -108,7 +105,6 @@ export const members = [
     chineseZodiac: '원숭이띠',
     mbti: 'ESFJ-A',
     dorm: '재희와 2인실',
-    closeWith: ['jaehee'],
     hobby: '축구, 닌텐도 스위치(젤다의 전설)',
     roleModel: 'EXO 카이',
     favoriteSong: '-',
@@ -144,7 +140,6 @@ export const members = [
     chineseZodiac: '닭띠',
     mbti: 'ENFP-T',
     dorm: '유우시와 2인실',
-    closeWith: ['yushi'],
     hobby: '노래 연습, 피아노, 독서',
     roleModel: '규현, 진영, 재현(모두 SM 선배)',
     favoriteSong: 'NCT 127 "AY-YO"',
@@ -180,7 +175,6 @@ export const members = [
     chineseZodiac: '돼지띠',
     mbti: 'ENTP-A',
     dorm: '사쿠야와 2인실',
-    closeWith: ['sakuya'],
     hobby: '영화 감상, 그림 그리기',
     roleModel: 'NCT 도영, 해찬',
     favoriteSong: 'NCT "Love Sign"',
@@ -214,7 +208,6 @@ export const members = [
     chineseZodiac: '돼지띠',
     mbti: 'ENFP',
     dorm: '료와 2인실',
-    closeWith: ['ryo'],
     hobby: '쇼핑, 사진 촬영, 축구',
     roleModel: 'NCT 태용',
     favoriteSong: 'NCT "Dancing In The Rain"',
