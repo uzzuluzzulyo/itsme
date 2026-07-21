@@ -9,6 +9,7 @@ const navItems = [
   { label: 'HOME', path: '/', end: true },
   { label: 'MEMBERS', path: '/members' },
   { label: 'DISCO', path: '/discography' },
+  { label: '입덕영상', path: '/gateway' },
   { label: 'BOARD', path: '/board' },
   { label: 'ABOUT', path: '/about' },
 ];

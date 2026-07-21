@@ -223,7 +223,7 @@ export const albums = [
     description: '데뷔 싱글 "Wish"의 한국반. 올드스쿨 힙합 장르로, 클래식 명곡의 샘플링이 포함됐다.',
     tracks: [
       { title: 'Wish (Korean Ver.)', youtubeId: 'hvQZs3k6Ytk' },
-      { title: 'Sail Away (Korean Ver.)', youtubeId: null },
+      { title: 'Sail Away (Korean Ver.)', youtubeId: 'VLtIZR4wHtU' },
     ],
   },
   {
