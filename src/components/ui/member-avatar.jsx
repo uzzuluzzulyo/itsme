@@ -19,6 +19,7 @@ function MemberAvatar({ member, size = 72 }) {
       sx={{
         width: size,
         height: size,
+        mx: 'auto',
         borderRadius: '50%',
         display: 'flex',
         alignItems: 'center',

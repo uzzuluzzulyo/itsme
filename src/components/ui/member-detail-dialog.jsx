@@ -38,7 +38,7 @@ function MemberDetailDialog({ member, onClose }) {
           </IconButton>
         </Box>
 
-        <Box sx={{ textAlign: 'center', mb: 2.5 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', mb: 2.5 }}>
           <MemberAvatar member={member} size={104} />
           <Typography sx={{ color: 'text.primary', fontWeight: 800, fontSize: '1.4rem', mt: 1.5 }}>
             {member.stageName}
