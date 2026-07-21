@@ -25,7 +25,7 @@ function MembersPreviewSection() {
       <Box sx={{ display: 'block', width: '100%', textAlign: 'center', mb: 4 }}>
         {members.map((member) => (
           <Box key={member.id} sx={{ display: 'inline-block', mx: { xs: 1.5, md: 2.5 }, mb: 2, verticalAlign: 'top' }}>
-            <MemberAvatar member={member} size={64} />
+            <MemberAvatar member={member} size={88} />
             <Typography sx={{ color: 'text.secondary', fontSize: '0.78rem', mt: 1 }}>
               {member.stageName}
             </Typography>

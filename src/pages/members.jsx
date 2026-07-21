@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -7,6 +8,7 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import GlowCard from '../components/ui/glow-card.jsx';
 import MemberAvatar from '../components/ui/member-avatar.jsx';
+import MemberDetailDialog from '../components/ui/member-detail-dialog.jsx';
 import { members } from '../utils/members.js';
 import groupPhoto from '../assets/members/group.jpg';
 
@@ -16,6 +18,8 @@ function formatBirthDate(dateString) {
 }
 
 function Members() {
+  const [selected, setSelected] = useState(null);
+
   return (
     <Box sx={{ width: '100%', pb: { xs: 6, md: 10 } }}>
       <Box
@@ -49,7 +53,7 @@ function Members() {
               color: '#FFFFFF',
               fontWeight: 800,
               fontSize: { xs: '1.75rem', md: '2.75rem' },
-              textShadow: '0 0 30px rgba(79,195,247,0.6)',
+              textShadow: '0 0 30px rgba(79,216,176,0.6)',
               letterSpacing: '0.05em',
             }}
           >
@@ -60,27 +64,26 @@ function Members() {
 
       <Container maxWidth="lg" sx={{ pt: { xs: 4, md: 6 } }}>
         <Typography sx={{ color: 'text.secondary', textAlign: 'center', mb: { xs: 4, md: 6 } }}>
-          우리의 위시, 6명의 멤버를 소개해요
+          우리의 위시, 6명의 멤버를 소개해요 · 카드를 누르면 더 자세히 볼 수 있어요
         </Typography>
 
         <Grid container spacing={3}>
           {members.map((member) => (
             <Grid key={member.id} size={{ xs: 12, sm: 6, md: 4 }}>
-              <GlowCard sx={{ height: '100%' }}>
-                <CardContent sx={{ p: { xs: 3, md: 3.5 } }}>
-                  <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
-                    <MemberAvatar member={member} size={64} />
-                    <Box>
-                      <Typography sx={{ color: 'text.primary', fontWeight: 800, fontSize: '1.2rem' }}>
-                        {member.stageName}
-                      </Typography>
-                      <Typography sx={{ color: 'text.secondary', fontSize: '0.8rem' }}>
-                        {member.stageNameEn} · {member.realName}
-                      </Typography>
-                    </Box>
-                  </Stack>
+              <GlowCard sx={{ height: '100%', cursor: 'pointer' }} alwaysGlow>
+                <CardContent
+                  onClick={() => setSelected(member)}
+                  sx={{ p: { xs: 3, md: 3.5 }, textAlign: 'center' }}
+                >
+                  <MemberAvatar member={member} size={96} />
+                  <Typography sx={{ color: 'text.primary', fontWeight: 800, fontSize: '1.25rem', mt: 2 }}>
+                    {member.stageName}
+                  </Typography>
+                  <Typography sx={{ color: 'text.secondary', fontSize: '0.8rem', mb: 2 }}>
+                    {member.stageNameEn} · {member.realName}
+                  </Typography>
 
-                  <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 2 }}>
+                  <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap justifyContent="center" sx={{ mb: 2 }}>
                     <Chip
                       label={member.position}
                       size="small"
@@ -109,6 +112,8 @@ function Members() {
           ))}
         </Grid>
       </Container>
+
+      <MemberDetailDialog member={selected} onClose={() => setSelected(null)} />
     </Box>
   );
 }

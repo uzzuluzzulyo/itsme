@@ -3,7 +3,8 @@ import Box from '@mui/material/Box';
 /**
  * MemberAvatar 컴포넌트
  *
- * 멤버 컬러 기반의 이니셜 원형 아바타. 실제 사진이 없을 때 사용한다.
+ * 멤버 컬러 기반의 원형 아바타. imageUrl이 있으면 사진을, 없으면 WISH DOLL 심볼
+ * 이모지를 보여준다.
  *
  * Props:
  * @param {object} member - members.js의 멤버 객체 [Required]
@@ -22,15 +23,23 @@ function MemberAvatar({ member, size = 72 }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontWeight: 800,
-        fontSize: size * 0.36,
-        color: '#04141F',
+        fontSize: size * 0.46,
         background: `radial-gradient(circle at 30% 25%, ${member.color}, ${member.color}CC 70%)`,
         boxShadow: `0 0 24px ${member.color}55`,
         flexShrink: 0,
+        overflow: 'hidden',
       }}
     >
-      {member.stageNameEn[0]}
+      {member.imageUrl ? (
+        <Box
+          component="img"
+          src={member.imageUrl}
+          alt={member.stageName}
+          sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      ) : (
+        member.doll?.emoji ?? member.stageNameEn[0]
+      )}
     </Box>
   );
 }
