@@ -122,6 +122,15 @@ function PostDetailDialog({ post, open, onClose, onLikeChange }) {
           <MemberBadge favoriteMember={post.itsme_users?.favorite_member} />
         </Stack>
 
+        {post.image_url && (
+          <Box
+            component="img"
+            src={post.image_url}
+            alt=""
+            sx={{ width: '100%', maxHeight: 360, objectFit: 'cover', borderRadius: 1, mb: 2 }}
+          />
+        )}
+
         <Typography sx={{ color: 'text.primary', fontSize: '0.95rem', lineHeight: 1.8, mb: 2, whiteSpace: 'pre-wrap' }}>
           {post.content}
         </Typography>

@@ -151,6 +151,14 @@ function Board() {
                 <Typography sx={{ color: 'text.primary', fontWeight: 700, fontSize: '1.02rem', mb: 0.5 }}>
                   {post.title}
                 </Typography>
+                {post.image_url && (
+                  <Box
+                    component="img"
+                    src={post.image_url}
+                    alt=""
+                    sx={{ width: '100%', maxHeight: 200, objectFit: 'cover', borderRadius: 1, mb: 1.5 }}
+                  />
+                )}
                 <Typography
                   sx={{
                     color: 'text.secondary',

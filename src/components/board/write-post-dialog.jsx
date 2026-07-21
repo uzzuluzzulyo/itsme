@@ -9,13 +9,16 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import ImageRoundedIcon from '@mui/icons-material/ImageRounded';
 import { supabase } from '../../lib/supabase.js';
 import { getCurrentUserId } from '../../lib/auth.js';
+
+const IMAGE_BUCKET = 'itsme-posts';
 
 /**
  * WritePostDialog 컴포넌트
  *
- * 새 게시글 작성 다이얼로그.
+ * 새 게시글 작성 다이얼로그. 이미지 첨부(선택)를 지원한다.
  *
  * Props:
  * @param {boolean} open - 다이얼로그 표시 여부 [Required]
@@ -30,6 +33,8 @@ function WritePostDialog({ open, onClose, categories, onCreated }) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [categoryId, setCategoryId] = useState('');
+  const [imageFile, setImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
@@ -37,7 +42,16 @@ function WritePostDialog({ open, onClose, categories, onCreated }) {
     setTitle('');
     setContent('');
     setCategoryId('');
+    setImageFile(null);
+    setImagePreview('');
     setError('');
+  }
+
+  function handleImageChange(event) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setImageFile(file);
+    setImagePreview(URL.createObjectURL(file));
   }
 
   async function handleSubmit() {
@@ -52,11 +66,25 @@ function WritePostDialog({ open, onClose, categories, onCreated }) {
     }
 
     setSubmitting(true);
+
+    let imageUrl = null;
+    if (imageFile) {
+      const path = `${userId}/${Date.now()}-${imageFile.name}`;
+      const { error: uploadError } = await supabase.storage.from(IMAGE_BUCKET).upload(path, imageFile);
+      if (uploadError) {
+        setSubmitting(false);
+        setError('이미지 업로드에 실패했습니다.');
+        return;
+      }
+      imageUrl = supabase.storage.from(IMAGE_BUCKET).getPublicUrl(path).data.publicUrl;
+    }
+
     const { error: insertError } = await supabase.from('itsme_posts').insert({
       title: title.trim(),
       content: content.trim(),
       category_id: categoryId,
       user_id: userId,
+      image_url: imageUrl,
     });
     setSubmitting(false);
 
@@ -107,6 +135,30 @@ function WritePostDialog({ open, onClose, categories, onCreated }) {
             multiline
             minRows={5}
           />
+
+          <Button
+            component="label"
+            startIcon={<ImageRoundedIcon />}
+            sx={{
+              alignSelf: 'flex-start',
+              color: 'text.secondary',
+              border: '1px solid',
+              borderColor: 'divider',
+            }}
+          >
+            사진 첨부
+            <input type="file" accept="image/*" hidden onChange={handleImageChange} />
+          </Button>
+
+          {imagePreview && (
+            <Box
+              component="img"
+              src={imagePreview}
+              alt="첨부 이미지 미리보기"
+              sx={{ width: '100%', maxHeight: 240, objectFit: 'cover', borderRadius: 1 }}
+            />
+          )}
+
           {error && <Typography sx={{ color: 'secondary.main', fontSize: '0.85rem' }}>{error}</Typography>}
           <Button
             onClick={handleSubmit}
@@ -114,7 +166,7 @@ function WritePostDialog({ open, onClose, categories, onCreated }) {
             variant="contained"
             sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', fontWeight: 700 }}
           >
-            {submitting ? '등록 중...' : '등록하기'}
+            {submitting ? (imageFile ? '업로드 중...' : '등록 중...') : '등록하기'}
           </Button>
         </Stack>
       </DialogContent>
