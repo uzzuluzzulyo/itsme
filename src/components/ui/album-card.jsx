@@ -3,6 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
+import { getAlbumThumbnail } from '../../utils/albums.js';
 
 function formatDate(dateString) {
   const [year, month, day] = dateString.split('-');
@@ -22,6 +23,8 @@ function formatDate(dateString) {
  * <AlbumCard album={album} onClick={() => setSelected(album)} />
  */
 function AlbumCard({ album, onClick }) {
+  const thumbnail = getAlbumThumbnail(album);
+
   return (
     <Card
       variant="outlined"
@@ -46,12 +49,12 @@ function AlbumCard({ album, onClick }) {
           justifyContent: 'center',
           textAlign: 'center',
           p: 2,
-          background: album.coverUrl
-            ? `url(${album.coverUrl}) center / cover`
+          background: thumbnail
+            ? `url(${thumbnail}) center / cover`
             : `radial-gradient(circle at 30% 25%, ${album.color}55, ${album.color}11 70%)`,
         }}
       >
-        {!album.coverUrl && (
+        {!thumbnail && (
           <Typography sx={{ color: album.color, fontWeight: 800, fontSize: '1.1rem', lineHeight: 1.3 }}>
             {album.title}
           </Typography>

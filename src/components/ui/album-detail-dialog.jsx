@@ -12,6 +12,7 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import PlayCircleRoundedIcon from '@mui/icons-material/PlayCircleRounded';
 import PlayCircleOutlineRoundedIcon from '@mui/icons-material/PlayCircleOutlineRounded';
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
+import { getAlbumThumbnail } from '../../utils/albums.js';
 
 function formatDate(dateString) {
   const [year, month, day] = dateString.split('-');
@@ -42,6 +43,8 @@ function AlbumDetailDialog({ album, onClose }) {
   }, [album?.id]);
 
   if (!album) return null;
+
+  const thumbnail = getAlbumThumbnail(album);
 
   function handleTrackClick(track) {
     if (track.youtubeId) {
@@ -87,12 +90,12 @@ function AlbumDetailDialog({ album, onClose }) {
               p: 2,
               mb: 1,
               cursor: album.youtubeId ? 'pointer' : 'default',
-              background: album.coverUrl
-                ? `url(${album.coverUrl}) center / cover`
+              background: thumbnail
+                ? `url(${thumbnail}) center / cover`
                 : `radial-gradient(circle at 30% 25%, ${album.color}55, ${album.color}11 70%)`,
             }}
           >
-            {!album.coverUrl && (
+            {!thumbnail && (
               <Typography sx={{ color: album.color, fontWeight: 800, fontSize: '1.4rem' }}>{album.title}</Typography>
             )}
             {album.youtubeId && (
@@ -137,6 +140,7 @@ function AlbumDetailDialog({ album, onClose }) {
         <Stack spacing={0.25}>
           {album.tracks.map((track, index) => {
             const isPlaying = nowPlayingId && nowPlayingId === track.youtubeId;
+            const isTitleTrack = Boolean(album.youtubeId) && track.youtubeId === album.youtubeId;
             return (
               <Button
                 key={track.title}
@@ -163,8 +167,8 @@ function AlbumDetailDialog({ album, onClose }) {
                   )}
                   <Typography
                     sx={{
-                      color: isPlaying ? album.color : index === 0 ? 'text.primary' : 'text.secondary',
-                      fontWeight: isPlaying || index === 0 ? 700 : 400,
+                      color: isPlaying ? album.color : isTitleTrack ? 'text.primary' : 'text.secondary',
+                      fontWeight: isPlaying || isTitleTrack ? 700 : 400,
                       fontSize: '0.85rem',
                       textTransform: 'none',
                       flexGrow: 1,
@@ -172,7 +176,7 @@ function AlbumDetailDialog({ album, onClose }) {
                   >
                     {track.title}
                   </Typography>
-                  {index === 0 && (
+                  {isTitleTrack && (
                     <Chip label="타이틀" size="small" sx={{ bgcolor: `${album.color}22`, color: album.color, height: 18, fontSize: '0.65rem' }} />
                   )}
                 </Stack>

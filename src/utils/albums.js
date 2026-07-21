@@ -11,6 +11,18 @@
  *
  * releaseDate 기준 최신순으로 정렬해서 사용한다.
  */
+
+/**
+ * 앨범 썸네일 이미지 URL을 반환한다.
+ * coverUrl이 지정되어 있으면 그대로 사용하고, 없으면 타이틀곡 유튜브 영상의
+ * 공식 썸네일(유튜브 자체 CDN에서 직접 참조, 다운로드/재호스팅 아님)을 대신 쓴다.
+ */
+export function getAlbumThumbnail(album) {
+  if (album.coverUrl) return album.coverUrl;
+  if (album.youtubeId) return `https://img.youtube.com/vi/${album.youtubeId}/hqdefault.jpg`;
+  return null;
+}
+
 export const albums = [
   {
     id: 'yoidon-bmg',
