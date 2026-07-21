@@ -5,6 +5,7 @@ import RequireAuth from './components/common/require-auth.jsx';
 import Home from './pages/home.jsx';
 import About from './pages/about.jsx';
 import Members from './pages/members.jsx';
+import Discography from './pages/discography.jsx';
 import Board from './pages/board.jsx';
 import Login from './pages/login.jsx';
 import Signup from './pages/signup.jsx';
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
         <Route path="/about" element={<RequireAuth><About /></RequireAuth>} />
         <Route path="/members" element={<RequireAuth><Members /></RequireAuth>} />
+        <Route path="/discography" element={<RequireAuth><Discography /></RequireAuth>} />
         <Route path="/board" element={<RequireAuth><Board /></RequireAuth>} />
       </Routes>
       <Footer />

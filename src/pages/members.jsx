@@ -64,7 +64,7 @@ function Members() {
 
       <Container maxWidth="lg" sx={{ pt: { xs: 4, md: 6 } }}>
         <Typography sx={{ color: 'text.secondary', textAlign: 'center', mb: { xs: 4, md: 6 } }}>
-          우리의 위시, 6명의 멤버를 소개해요 · 카드를 누르면 더 자세히 볼 수 있어요
+          TO THE WORLD, 여긴 엔시티! NCT WISH입니다.
         </Typography>
 
         <Grid container spacing={3}>

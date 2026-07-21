@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom';
 const navItems = [
   { label: 'HOME', path: '/', end: true },
   { label: 'MEMBERS', path: '/members' },
+  { label: 'DISCO', path: '/discography' },
   { label: 'BOARD', path: '/board' },
   { label: 'ABOUT', path: '/about' },
 ];
