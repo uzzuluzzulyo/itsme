@@ -191,7 +191,7 @@ export const albums = [
     description: '일본반에 이은 한국어 버전 싱글. "Cupid Museum에서 사라진 새(Missing Bird in Cupid Museum)" 컨셉의 티저로 화제를 모았다.',
     tracks: [
       { title: 'Songbird (Korean Ver.)', youtubeId: '2XqVNFBtVo4' },
-      { title: 'Tears Are Falling (Korean Ver.)', youtubeId: '1OQG1diC9i4' },
+      { title: 'Tears Are Falling (Korean Ver.)', youtubeId: 'UmY0WFzUN-s' },
     ],
   },
   {
