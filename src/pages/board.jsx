@@ -174,28 +174,37 @@ function Board() {
                   {post.content}
                 </Typography>
 
-                <Stack direction="row" justifyContent="space-between" alignItems="center">
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <Typography sx={{ color: 'text.secondary', fontSize: '0.78rem', fontWeight: 600 }}>
+                <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, minWidth: 0 }}>
+                    <Typography
+                      sx={{
+                        color: 'text.secondary',
+                        fontSize: '0.78rem',
+                        fontWeight: 600,
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
                       {post.itsme_users?.nickname ?? '탈퇴한 사용자'}
                     </Typography>
                     <MemberBadge favoriteMember={post.itsme_users?.favorite_member} />
-                  </Stack>
-                  <Stack direction="row" spacing={1.5} alignItems="center">
-                    <Stack direction="row" spacing={0.4} alignItems="center">
-                      <FavoriteRoundedIcon sx={{ fontSize: 14, color: 'secondary.main' }} />
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.75, flexShrink: 0 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                      <FavoriteRoundedIcon sx={{ fontSize: 15, color: 'secondary.main' }} />
                       <Typography sx={{ color: 'text.disabled', fontSize: '0.75rem' }}>
                         {likeCounts[post.id] ?? 0}
                       </Typography>
-                    </Stack>
-                    <Stack direction="row" spacing={0.4} alignItems="center">
-                      <ChatBubbleOutlineRoundedIcon sx={{ fontSize: 14, color: 'text.disabled' }} />
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                      <ChatBubbleOutlineRoundedIcon sx={{ fontSize: 15, color: 'text.disabled' }} />
                       <Typography sx={{ color: 'text.disabled', fontSize: '0.75rem' }}>
                         {commentCounts[post.id] ?? 0}
                       </Typography>
-                    </Stack>
-                  </Stack>
-                </Stack>
+                    </Box>
+                  </Box>
+                </Box>
               </CardContent>
             </GlowCard>
           ))}
