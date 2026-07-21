@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import SectionContainer from '../ui/section-container.jsx';
 import MemberAvatar from '../ui/member-avatar.jsx';
@@ -23,16 +22,16 @@ function MembersPreviewSection() {
         Members
       </Typography>
 
-      <Stack direction="row" spacing={{ xs: 1.5, md: 3 }} justifyContent="center" flexWrap="wrap" useFlexGap sx={{ mb: 4 }}>
+      <Box sx={{ display: 'block', width: '100%', textAlign: 'center', mb: 4 }}>
         {members.map((member) => (
-          <Box key={member.id} sx={{ textAlign: 'center' }}>
+          <Box key={member.id} sx={{ display: 'inline-block', mx: { xs: 1.5, md: 2.5 }, mb: 2, verticalAlign: 'top' }}>
             <MemberAvatar member={member} size={64} />
             <Typography sx={{ color: 'text.secondary', fontSize: '0.78rem', mt: 1 }}>
               {member.stageName}
             </Typography>
           </Box>
         ))}
-      </Stack>
+      </Box>
 
       <Button
         component={NavLink}
