@@ -31,10 +31,10 @@ function Footer() {
           textShadow: (theme) => `0 0 14px ${theme.palette.primary.main}44`,
         }}
       >
-        WISHPLAY
+        Our Wishh
       </Typography>
       <Typography sx={{ color: 'text.disabled', fontSize: '0.85rem' }}>
-        © 2026 WISHPLAY · NCT WISH 팬 커뮤니티
+        © 2026 Our Wishh · NCT WISH 팬 커뮤니티
       </Typography>
       <Box sx={{ display: 'flex', gap: 1 }}>
         <IconButton size="small" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' } }}>

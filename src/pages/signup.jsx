@@ -30,7 +30,7 @@ function Signup() {
               현재 회원가입을 받고 있지 않아요
             </Typography>
             <Typography sx={{ color: 'text.secondary', fontSize: '0.95rem', lineHeight: 1.7, mb: 3 }}>
-              WISHPLAY는 지금 신규 가입을 열어두지 않았어요.
+              Our Wishh는 지금 신규 가입을 열어두지 않았어요.
               이미 계정이 있다면 로그인해주세요.
             </Typography>
             <Button

@@ -33,7 +33,7 @@ function HeroSection() {
             textShadow: (theme) => `0 0 40px ${theme.palette.primary.main}55`,
           }}
         >
-          WISHPLAY
+          Our Wishh
         </Typography>
         <Typography
           sx={{

@@ -36,7 +36,7 @@ function Navbar() {
             textShadow: (theme) => `0 0 18px ${theme.palette.primary.main}66`,
           }}
         >
-          WISHPLAY
+          Our Wishh
         </Typography>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1.5, md: 3 } }}>
