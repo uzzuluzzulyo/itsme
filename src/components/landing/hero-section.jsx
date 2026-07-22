@@ -43,7 +43,7 @@ function HeroSection() {
             mb: 4,
           }}
         >
-          NCT WISH와 함께하는 팬 커뮤니티. 멤버 소식을 나누고,
+          NCT WISH 위즈니 집합소. 멤버 소식을 나누고,
           위시들과 자유롭게 이야기해요.
         </Typography>
         <Button

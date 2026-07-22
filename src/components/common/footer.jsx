@@ -34,7 +34,7 @@ function Footer() {
         Our Wishh
       </Typography>
       <Typography sx={{ color: 'text.disabled', fontSize: '0.85rem' }}>
-        © 2026 Our Wishh · NCT WISH 팬 커뮤니티
+        © 2026 Our Wishh · NCT WISH 위즈니 집합소
       </Typography>
       <Box sx={{ display: 'flex', gap: 1 }}>
         <IconButton size="small" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' } }}>
