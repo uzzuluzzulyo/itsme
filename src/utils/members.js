@@ -110,7 +110,7 @@ export const members = [
     bloodType: 'A형',
     zodiac: '양자리',
     chineseZodiac: '원숭이띠',
-    mbti: 'ESFJ-A',
+    mbti: 'ISFJ',
     dorm: '재희와 2인실',
     hobby: '축구, 닌텐도 스위치(젤다의 전설)',
     roleModel: 'EXO 카이',
