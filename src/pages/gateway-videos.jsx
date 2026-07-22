@@ -14,9 +14,10 @@ function GatewayVideos() {
   const memberId = searchParams.get('member');
   const member = memberId ? members.find((item) => item.id === memberId) : null;
 
-  const videos = member
+  const videos = (member
     ? gatewayVideos.filter((video) => video.memberId === member.id)
-    : gatewayVideos.filter((video) => !video.memberId);
+    : gatewayVideos.filter((video) => !video.memberId)
+  ).slice().sort((a, b) => (b.featured === true) - (a.featured === true));
 
   return (
     <Box sx={{ width: '100%', py: { xs: 4, md: 8 }, px: { xs: 2, md: 3 } }}>
