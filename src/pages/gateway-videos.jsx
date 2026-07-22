@@ -19,6 +19,9 @@ function GatewayVideos() {
     : gatewayVideos.filter((video) => !video.memberId)
   ).slice().sort((a, b) => (b.featured === true) - (a.featured === true));
 
+  const stageVideos = videos.filter((video) => video.category === '무대');
+  const otherVideos = videos.filter((video) => video.category !== '무대');
+
   return (
     <Box sx={{ width: '100%', py: { xs: 4, md: 8 }, px: { xs: 2, md: 3 } }}>
       <Container maxWidth="lg">
@@ -59,13 +62,37 @@ function GatewayVideos() {
             아직 {member?.stageName ?? ''} 전용 입덕 영상이 준비되지 않았어요. 곧 채워질 예정이에요!
           </Typography>
         ) : (
-          <Grid container spacing={2.5}>
-            {videos.map((video) => (
-              <Grid key={video.id} size={{ xs: 12, sm: 6, md: 4 }}>
-                <GatewayVideoCard video={video} />
-              </Grid>
-            ))}
-          </Grid>
+          <>
+            {stageVideos.length > 0 && (
+              <Box sx={{ mb: { xs: 4, md: 5 } }}>
+                <Typography sx={{ color: 'text.primary', fontWeight: 800, fontSize: '1.05rem', mb: 2 }}>
+                  무대 영상
+                </Typography>
+                <Grid container spacing={2.5}>
+                  {stageVideos.map((video) => (
+                    <Grid key={video.id} size={{ xs: 12, sm: 6, md: 4 }}>
+                      <GatewayVideoCard video={video} />
+                    </Grid>
+                  ))}
+                </Grid>
+              </Box>
+            )}
+
+            {otherVideos.length > 0 && (
+              <Box>
+                <Typography sx={{ color: 'text.primary', fontWeight: 800, fontSize: '1.05rem', mb: 2 }}>
+                  예능·입덕 영상
+                </Typography>
+                <Grid container spacing={2.5}>
+                  {otherVideos.map((video) => (
+                    <Grid key={video.id} size={{ xs: 12, sm: 6, md: 4 }}>
+                      <GatewayVideoCard video={video} />
+                    </Grid>
+                  ))}
+                </Grid>
+              </Box>
+            )}
+          </>
         )}
       </Container>
     </Box>

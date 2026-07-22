@@ -62,8 +62,8 @@ export const gatewayVideos = [
     id: 'mikan-jamgi',
     title: '말할 때 빼고 미간 잡기',
     youtubeId: 'qjjt0pPBeHs',
-    memberId: null,
+    memberId: 'yushi',
     category: '예능',
-    blurb: '멤버들의 사소한 습관까지 귀여운, 보다 보면 웃음이 나는 위시 예능 모먼트.',
+    blurb: '유우시의 사소한 습관까지 귀여운, 보다 보면 웃음이 나는 예능 모먼트.',
   },
 ];
