@@ -23,6 +23,7 @@ import poppopCover from '../assets/albums/poppop.jpg';
 import songbirdKrCover from '../assets/albums/songbird-kr.jpg';
 import songbirdJpCover from '../assets/albums/songbird-jp.jpg';
 import miracleCover from '../assets/albums/miracle.jpg';
+import handsUpCover from '../assets/albums/hands-up.jpg';
 
 /**
  * 앨범 썸네일 이미지 URL을 반환한다.
@@ -269,7 +270,7 @@ export const albums = [
     type: '싱글',
     language: '일본어',
     label: 'SM Entertainment · avex trax',
-    coverUrl: null,
+    coverUrl: handsUpCover,
     color: '#FFAB40',
     youtubeId: 'ZVcy7bQkBhA',
     description:
