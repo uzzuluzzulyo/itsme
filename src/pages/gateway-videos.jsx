@@ -34,6 +34,11 @@ function GatewayVideos() {
             >
               {member.stageName} 입덕 영상
             </Typography>
+            {member.gatewayBlurb && (
+              <Typography sx={{ color: 'text.secondary', fontSize: '0.9rem', mb: 1.5 }}>
+                {member.gatewayBlurb}
+              </Typography>
+            )}
             <Chip
               label="전체 입덕 영상 보기"
               component={RouterLink}

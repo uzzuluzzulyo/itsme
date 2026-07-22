@@ -90,6 +90,7 @@ export const members = [
     stageName: '유우시',
     stageNameEn: 'Yushi',
     realName: '토쿠노 유우시',
+    gatewayBlurb: '그냥 느껴라.',
     birthDate: '2004-04-05',
     nationality: '일본',
     hometown: '일본 도쿄',
