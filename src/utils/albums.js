@@ -25,8 +25,8 @@ export function getAlbumThumbnail(album) {
 
 export const albums = [
   {
-    id: 'yoidon-bmg',
-    title: 'YO-I-DON! / BOY MEETS GIRL',
+    id: 'yoidon',
+    title: 'YO-I-DON!',
     releaseDate: '2026-07-13',
     type: '싱글',
     language: '일본어',
@@ -35,11 +35,22 @@ export const albums = [
     color: '#4FD8B0',
     youtubeId: 'E1d8dVSs0Bg',
     description:
-      '더블 타이틀 싱글. "YO-I-DON!"은 일본어 제목으로 발표한 첫 오리지널 신곡이며, "BOY MEETS GIRL"은 일본 헤이세이 시대 히트곡인 TRF의 동명 곡을 리메이크한 곡이다.',
-    tracks: [
-      { title: 'YO-I-DON!', youtubeId: 'E1d8dVSs0Bg' },
-      { title: 'BOY MEETS GIRL', youtubeId: '2derLGPaliE' },
-    ],
+      '더블 타이틀 싱글 "YO-I-DON! / BOY MEETS GIRL" 중 한 곡. 일본어 제목으로 발표한 첫 오리지널 신곡이다.',
+    tracks: [{ title: 'YO-I-DON!', youtubeId: 'E1d8dVSs0Bg' }],
+  },
+  {
+    id: 'boy-meets-girl',
+    title: 'BOY MEETS GIRL',
+    releaseDate: '2026-07-13',
+    type: '싱글',
+    language: '일본어',
+    label: 'SM Entertainment · avex trax',
+    coverUrl: null,
+    color: '#42A5F5',
+    youtubeId: '2derLGPaliE',
+    description:
+      '더블 타이틀 싱글 "YO-I-DON! / BOY MEETS GIRL" 중 한 곡. 일본 헤이세이 시대 히트곡인 TRF의 동명 곡을 리메이크했다.',
+    tracks: [{ title: 'BOY MEETS GIRL', youtubeId: '2derLGPaliE' }],
   },
   {
     id: 'ode-to-love',
