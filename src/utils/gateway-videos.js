@@ -1,57 +1,26 @@
 /**
  * 위시 입덕 영상 큐레이션
  *
- * 각 시기를 대표하는 공식 뮤직비디오 위주로, 처음 보는 사람도 NCT WISH의 매력을
- * 빠르게 느낄 수 있도록 고른 목록입니다. 전부 SM Entertainment · avex trax
- * 공식 채널에 올라온 영상입니다.
+ * 뮤직비디오는 디스코그래피에서 이미 볼 수 있어서 제외하고, 예능/리액션/
+ * 감동 모먼트처럼 무대 밖 매력을 보여주는 영상 위주로 큐레이션합니다.
+ *
+ * memberId가 없으면(null) 그룹 전체를 위한 영상으로 메인 입덕 영상 페이지에서
+ * 보여준다. memberId가 있으면 해당 멤버 전용 페이지에서만 보여주고, 다른
+ * 멤버 페이지나 메인 목록에는 섞이지 않는다.
  */
 export const gatewayVideos = [
   {
-    id: 'yoidon',
-    title: 'YO-I-DON!',
-    youtubeId: 'E1d8dVSs0Bg',
-    blurb: '가장 최신 컴백. 통통 튀는 에너지와 중독성 있는 후렴구로 지금 위시의 매력을 가장 잘 보여줘요.',
-  },
-  {
-    id: 'odetolove',
-    title: 'Ode to Love',
-    youtubeId: '1o5O2YvV3HU',
-    blurb: '첫 정규앨범 타이틀곡. 유닛 전체가 함께 성장한 걸 보여주는 웅장한 무대감이 매력이에요.',
-  },
-  {
-    id: 'color',
-    title: 'COLOR',
-    youtubeId: '28dAfmIAlCo',
-    blurb: '알록달록한 비주얼과 자신감 넘치는 분위기로, 위시만의 색깔을 제대로 보여주는 곡이에요.',
-  },
-  {
-    id: 'wishfulwinter',
-    title: 'Wishful Winter',
-    youtubeId: 'NAhEwvI9TGE',
-    blurb: '몽환적이고 따뜻한 발라드. 위시의 보컬과 하모니에 반하고 싶다면 추천이에요.',
-  },
-  {
-    id: 'poppop',
-    title: 'poppop',
-    youtubeId: 'LNETckymbzk',
-    blurb: '상큼하고 발랄한 분위기의 곡. 위시의 풋풋한 매력이 궁금하다면 딱이에요.',
-  },
-  {
-    id: 'steady',
-    title: 'Steady',
-    youtubeId: 'IKlkZZv76Ho',
-    blurb: '데뷔 첫 한국 미니앨범 타이틀곡. 위시의 시작을 함께 보고 싶다면 여기서부터.',
+    id: 'funny-game',
+    title: '개웃긴 복불복 게임',
+    youtubeId: 'kzw-RTzpDTM',
+    memberId: null,
+    blurb: '무대 위 모습과는 다른 6명의 케미와 리액션 부자 매력을 볼 수 있는 예능 영상.',
   },
   {
     id: 'riku-tears-nasa',
     title: '리쿠 눈물의 NASA',
     youtubeId: '3cunglJwn1E',
+    memberId: 'riku',
     blurb: '많은 팬들을 입덕시킨 그 영상. 리쿠의 진심이 담긴 무대를 보면 왜 다들 위시에 빠지는지 알 수 있어요.',
-  },
-  {
-    id: 'funny-game',
-    title: '개웃긴 복불복 게임',
-    youtubeId: 'kzw-RTzpDTM',
-    blurb: '무대 위 모습과는 다른 6명의 케미와 리액션 부자 매력을 볼 수 있는 예능 영상.',
   },
 ];

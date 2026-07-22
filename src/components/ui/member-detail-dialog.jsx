@@ -1,3 +1,4 @@
+import { Link as RouterLink } from 'react-router-dom';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import Box from '@mui/material/Box';
@@ -6,7 +7,9 @@ import Stack from '@mui/material/Stack';
 import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import MemberAvatar from './member-avatar.jsx';
 
 function formatBirthDate(dateString) {
@@ -43,9 +46,19 @@ function MemberDetailDialog({ member, onClose }) {
           <Typography sx={{ color: 'text.primary', fontWeight: 800, fontSize: '1.4rem', mt: 1.5 }}>
             {member.stageName}
           </Typography>
-          <Typography sx={{ color: 'text.secondary', fontSize: '0.85rem' }}>
+          <Typography sx={{ color: 'text.secondary', fontSize: '0.85rem', mb: 1.5 }}>
             {member.stageNameEn} · {member.realName}
           </Typography>
+          <Button
+            component={RouterLink}
+            to={`/gateway?member=${member.id}`}
+            startIcon={<FavoriteRoundedIcon />}
+            size="small"
+            variant="outlined"
+            sx={{ borderColor: member.color, color: member.color, fontWeight: 700 }}
+          >
+            {member.stageName}(으)로 입덕하러 가기
+          </Button>
         </Box>
 
         <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap justifyContent="center" sx={{ mb: 2.5 }}>
