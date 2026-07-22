@@ -24,6 +24,9 @@ import songbirdKrCover from '../assets/albums/songbird-kr.jpg';
 import songbirdJpCover from '../assets/albums/songbird-jp.jpg';
 import miracleCover from '../assets/albums/miracle.jpg';
 import handsUpCover from '../assets/albums/hands-up.jpg';
+import makeYouShineCover from '../assets/albums/make-you-shine.jpg';
+import wouldYouMarryMeCover from '../assets/albums/would-you-marry-me.jpg';
+import princepingSongCover from '../assets/albums/princeping-song.jpg';
 
 /**
  * 앨범 썸네일 이미지 URL을 반환한다.
@@ -103,12 +106,12 @@ export const albums = [
     description: 'NCT WISH의 첫 일본 미니 앨범. 타이틀곡은 "Hello Mellow".',
     tracks: [
       { title: 'Hello Mellow', youtubeId: '8s23tBtQciU' },
-      { title: 'ZONE', youtubeId: '3MbgxGHbsIc' },
-      { title: 'BUBBLE GUM', youtubeId: 'zpjXvoqSft8' },
+      { title: 'ZONE', youtubeId: 'HdnUliKQSCo' },
+      { title: 'BUBBLE GUM', youtubeId: 'dhLzkb0tcN0' },
       { title: 'Dreamcatcher', youtubeId: 'UulR1x4tvZE' },
-      { title: 'SOMEDAY', youtubeId: '1A9GJ9fa0gc' },
-      { title: 'Good Morning', youtubeId: 'UIU9wCGmbtQ' },
-      { title: 'poppop (Japanese Ver.)', youtubeId: 'hxsaZK8ptFg' },
+      { title: 'SOMEDAY', youtubeId: 'M2PZUOQDNrc' },
+      { title: 'Good Morning', youtubeId: 'n4hfPv-tJuI' },
+      { title: 'poppop (Japanese Ver.)', youtubeId: 'vE6oprHXdJc' },
     ],
   },
   {
@@ -231,7 +234,7 @@ export const albums = [
     description: 'NCT WISH의 두 번째 일본 싱글.',
     tracks: [
       { title: 'Songbird (Japanese Ver.)', youtubeId: 'C_qALZPuK8I' },
-      { title: 'Tears Are Falling (Japanese Ver.)', youtubeId: 'pmeZQnemR8Y' },
+      { title: 'Tears Are Falling (Japanese Ver.)', youtubeId: 'gKhf-U9l0nE' },
     ],
   },
   {
@@ -311,7 +314,7 @@ export const albums = [
     type: 'OST',
     language: '한국어',
     label: 'SAMG Entertainment',
-    coverUrl: null,
+    coverUrl: princepingSongCover,
     color: '#7E57C2',
     youtubeId: 'Na18owmxe1w',
     description: '애니메이션 "캐치! 티니핑" 시즌6(프린세스 캐치! 티니핑)의 OST로 참여한 곡.',
@@ -324,7 +327,7 @@ export const albums = [
     type: 'OST',
     language: '한국어',
     label: 'SM Entertainment',
-    coverUrl: null,
+    coverUrl: wouldYouMarryMeCover,
     color: '#FDD835',
     youtubeId: 'w2OgFNzmiO4',
     description: '드라마 "우주메리미(Would You Marry Me?)" Part.3 OST로 참여한 곡.',
@@ -351,7 +354,7 @@ export const albums = [
     type: '싱글',
     language: '한국어',
     label: 'SM Entertainment',
-    coverUrl: null,
+    coverUrl: makeYouShineCover,
     color: '#FFA726',
     youtubeId: '5oWYTEqRen4',
     description: '포켓몬스터 테라스탈 데뷔 기념곡. "포켓몬스터 호라이즌" 한국어 더빙판의 두 번째 엔딩 테마로 쓰였다.',

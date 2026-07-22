@@ -42,4 +42,16 @@ export const gatewayVideos = [
     youtubeId: 'IKlkZZv76Ho',
     blurb: '데뷔 첫 한국 미니앨범 타이틀곡. 위시의 시작을 함께 보고 싶다면 여기서부터.',
   },
+  {
+    id: 'riku-tears-nasa',
+    title: '리쿠 눈물의 NASA',
+    youtubeId: '3cunglJwn1E',
+    blurb: '많은 팬들을 입덕시킨 그 영상. 리쿠의 진심이 담긴 무대를 보면 왜 다들 위시에 빠지는지 알 수 있어요.',
+  },
+  {
+    id: 'funny-game',
+    title: '개웃긴 복불복 게임',
+    youtubeId: 'kzw-RTzpDTM',
+    blurb: '무대 위 모습과는 다른 6명의 케미와 리액션 부자 매력을 볼 수 있는 예능 영상.',
+  },
 ];
