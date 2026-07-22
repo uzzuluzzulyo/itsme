@@ -64,7 +64,7 @@ function GatewayVideos() {
         ) : (
           <>
             {stageVideos.length > 0 && (
-              <Box sx={{ mb: { xs: 4, md: 5 } }}>
+              <Box sx={{ mb: { xs: 4, md: 5 }, pb: { xs: 4, md: 5 }, borderBottom: otherVideos.length > 0 ? '2px solid' : 'none', borderColor: 'divider' }}>
                 <Typography sx={{ color: 'text.primary', fontWeight: 800, fontSize: '1.05rem', mb: 2 }}>
                   무대 영상
                 </Typography>
