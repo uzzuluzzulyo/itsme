@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/common/navbar.jsx';
 import Footer from './components/common/footer.jsx';
 import RequireAuth from './components/common/require-auth.jsx';
+import CursorEffects from './components/common/cursor-effects.jsx';
 import Home from './pages/home.jsx';
 import About from './pages/about.jsx';
 import Members from './pages/members.jsx';
@@ -16,6 +17,7 @@ import FindPassword from './pages/find-password.jsx';
 function App() {
   return (
     <>
+      <CursorEffects />
       <Navbar />
       <Routes>
         <Route path="/login" element={<Login />} />

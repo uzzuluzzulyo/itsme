@@ -1,9 +1,12 @@
+import { useRef } from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import { getAlbumThumbnail } from '../../utils/albums.js';
+
+const CAN_TILT = typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches;
 
 function formatDate(dateString) {
   const [year, month, day] = dateString.split('-');
@@ -24,9 +27,26 @@ function formatDate(dateString) {
  */
 function AlbumCard({ album, onClick }) {
   const thumbnail = getAlbumThumbnail(album);
+  const cardRef = useRef(null);
+
+  function handleMouseMove(event) {
+    if (!CAN_TILT || !cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const px = (event.clientX - rect.left) / rect.width - 0.5;
+    const py = (event.clientY - rect.top) / rect.height - 0.5;
+    cardRef.current.style.transform = `perspective(900px) rotateX(${py * -8}deg) rotateY(${px * 8}deg) translateY(-4px)`;
+  }
+
+  function handleMouseLeave() {
+    if (!cardRef.current) return;
+    cardRef.current.style.transform = '';
+  }
 
   return (
     <Card
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       variant="outlined"
       onClick={onClick}
       sx={{
@@ -37,8 +57,9 @@ function AlbumCard({ album, onClick }) {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        transition: 'border-color 0.2s ease, transform 0.2s ease',
-        '&:hover': { borderColor: album.color, transform: 'translateY(-4px)' },
+        transition: 'border-color 0.2s ease, transform 0.15s ease-out',
+        willChange: 'transform',
+        '&:hover': { borderColor: album.color },
       }}
     >
       <Box

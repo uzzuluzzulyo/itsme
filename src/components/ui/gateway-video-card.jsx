@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -7,6 +7,8 @@ import Chip from '@mui/material/Chip';
 import PlayCircleRoundedIcon from '@mui/icons-material/PlayCircleRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import { members } from '../../utils/members.js';
+
+const CAN_TILT = typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches;
 
 /**
  * GatewayVideoCard 컴포넌트
@@ -24,9 +26,26 @@ function GatewayVideoCard({ video }) {
   const [playing, setPlaying] = useState(false);
   const memberColor = members.find((item) => item.id === video.memberId)?.color;
   const featuredColor = memberColor ?? '#FFC107';
+  const cardRef = useRef(null);
+
+  function handleMouseMove(event) {
+    if (!CAN_TILT || !cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const px = (event.clientX - rect.left) / rect.width - 0.5;
+    const py = (event.clientY - rect.top) / rect.height - 0.5;
+    cardRef.current.style.transform = `perspective(900px) rotateX(${py * -8}deg) rotateY(${px * 8}deg) translateY(-4px)`;
+  }
+
+  function handleMouseLeave() {
+    if (!cardRef.current) return;
+    cardRef.current.style.transform = '';
+  }
 
   return (
     <Card
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       variant="outlined"
       sx={{
         borderColor: video.featured ? featuredColor : 'divider',
@@ -36,9 +55,10 @@ function GatewayVideoCard({ video }) {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        transition: 'border-color 0.2s ease, transform 0.2s ease',
+        transition: 'border-color 0.2s ease, transform 0.15s ease-out',
+        willChange: 'transform',
         boxShadow: video.featured ? `0 8px 24px ${featuredColor}40` : 'none',
-        '&:hover': { borderColor: memberColor ?? 'primary.main', transform: 'translateY(-4px)' },
+        '&:hover': { borderColor: memberColor ?? 'primary.main' },
       }}
     >
       {playing ? (
