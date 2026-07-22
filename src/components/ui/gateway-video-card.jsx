@@ -6,12 +6,13 @@ import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import PlayCircleRoundedIcon from '@mui/icons-material/PlayCircleRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import { members } from '../../utils/members.js';
 
 /**
  * GatewayVideoCard 컴포넌트
  *
  * 입덕 영상 하나를 썸네일 카드로 보여주고, 누르면 카드 안에서 바로
- * 유튜브 임베드로 재생한다.
+ * 유튜브 임베드로 재생한다. featured 영상은 해당 멤버 고유 색상으로 강조된다.
  *
  * Props:
  * @param {object} video - gateway-videos.js의 영상 객체 [Required]
@@ -21,12 +22,13 @@ import StarRoundedIcon from '@mui/icons-material/StarRounded';
  */
 function GatewayVideoCard({ video }) {
   const [playing, setPlaying] = useState(false);
+  const featuredColor = members.find((item) => item.id === video.memberId)?.color ?? '#FFC107';
 
   return (
     <Card
       variant="outlined"
       sx={{
-        borderColor: video.featured ? '#FFC107' : 'divider',
+        borderColor: video.featured ? featuredColor : 'divider',
         borderWidth: video.featured ? 2 : 1,
         bgcolor: 'background.paper',
         overflow: 'hidden',
@@ -34,8 +36,8 @@ function GatewayVideoCard({ video }) {
         display: 'flex',
         flexDirection: 'column',
         transition: 'border-color 0.2s ease, transform 0.2s ease',
-        boxShadow: video.featured ? '0 8px 24px rgba(255,193,7,0.25)' : 'none',
-        '&:hover': { borderColor: video.featured ? '#FFC107' : 'primary.main', transform: 'translateY(-4px)' },
+        boxShadow: video.featured ? `0 8px 24px ${featuredColor}40` : 'none',
+        '&:hover': { borderColor: video.featured ? featuredColor : 'primary.main', transform: 'translateY(-4px)' },
       }}
     >
       {playing ? (
@@ -97,10 +99,10 @@ function GatewayVideoCard({ video }) {
       <CardContent sx={{ p: 2 }}>
         {video.featured && (
           <Chip
-            icon={<StarRoundedIcon sx={{ color: '#000 !important', fontSize: '1rem' }} />}
+            icon={<StarRoundedIcon sx={{ color: '#fff !important', fontSize: '1rem' }} />}
             label="주인장 최애 직캠"
             size="small"
-            sx={{ bgcolor: '#FFC107', color: '#000', fontWeight: 800, fontSize: '0.7rem', mb: 1 }}
+            sx={{ bgcolor: featuredColor, color: '#fff', fontWeight: 800, fontSize: '0.7rem', mb: 1 }}
           />
         )}
         <Typography sx={{ color: 'text.primary', fontWeight: 700, fontSize: '0.95rem' }}>
