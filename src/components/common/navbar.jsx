@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Drawer from '@mui/material/Drawer';
+import Stack from '@mui/material/Stack';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { NavLink } from 'react-router-dom';
 
 const navItems = [
@@ -15,6 +21,8 @@ const navItems = [
 ];
 
 function Navbar() {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   return (
     <AppBar
       position="sticky"
@@ -41,7 +49,7 @@ function Navbar() {
           Our Wishh
         </Typography>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1.5, md: 3 } }}>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 3 }}>
           {navItems.map((item) => (
             <Button
               key={item.path}
@@ -52,7 +60,7 @@ function Navbar() {
                 position: 'relative',
                 color: 'text.secondary',
                 fontWeight: 600,
-                fontSize: { xs: '0.8rem', md: '0.95rem' },
+                fontSize: '0.95rem',
                 letterSpacing: '0.04em',
                 '&.active': {
                   color: 'primary.main',
@@ -78,14 +86,72 @@ function Navbar() {
             sx={{
               color: 'text.secondary',
               fontWeight: 600,
-              fontSize: { xs: '0.8rem', md: '0.95rem' },
+              fontSize: '0.95rem',
               '&.active': { color: 'primary.main' },
             }}
           >
             로그인
           </Button>
         </Box>
+
+        <IconButton
+          onClick={() => setDrawerOpen(true)}
+          sx={{ display: { xs: 'flex', md: 'none' }, color: 'text.primary' }}
+        >
+          <MenuRoundedIcon />
+        </IconButton>
       </Toolbar>
+
+      <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <Box sx={{ width: 240, bgcolor: 'background.paper', height: '100%', p: 2 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 1 }}>
+            <IconButton onClick={() => setDrawerOpen(false)} sx={{ color: 'text.secondary' }}>
+              <CloseRoundedIcon />
+            </IconButton>
+          </Box>
+          <Stack spacing={0.5}>
+            {navItems.map((item) => (
+              <Button
+                key={item.path}
+                component={NavLink}
+                to={item.path}
+                end={item.end}
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  justifyContent: 'flex-start',
+                  color: 'text.secondary',
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
+                  px: 1.5,
+                  py: 1.25,
+                  borderRadius: 1.5,
+                  '&.active': { color: 'primary.main', bgcolor: `primary.main`, opacity: 1 },
+                  '&.active, &.active:hover': { bgcolor: 'action.selected', color: 'primary.main' },
+                }}
+              >
+                {item.label}
+              </Button>
+            ))}
+            <Button
+              component={NavLink}
+              to="/login"
+              onClick={() => setDrawerOpen(false)}
+              sx={{
+                justifyContent: 'flex-start',
+                color: 'text.secondary',
+                fontWeight: 600,
+                fontSize: '0.95rem',
+                px: 1.5,
+                py: 1.25,
+                borderRadius: 1.5,
+                '&.active': { color: 'primary.main', bgcolor: 'action.selected' },
+              }}
+            >
+              로그인
+            </Button>
+          </Stack>
+        </Box>
+      </Drawer>
     </AppBar>
   );
 }
