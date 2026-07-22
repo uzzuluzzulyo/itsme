@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -19,6 +20,14 @@ function formatBirthDate(dateString) {
 
 function Members() {
   const [selected, setSelected] = useState(null);
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const memberId = searchParams.get('member');
+    if (!memberId) return;
+    const member = members.find((item) => item.id === memberId);
+    if (member) setSelected(member);
+  }, [searchParams]);
 
   return (
     <Box sx={{ width: '100%', pb: { xs: 6, md: 10 } }}>
