@@ -239,4 +239,18 @@ export const albums = [
     description: '2024년 2월 21일 데뷔한 NCT WISH의 데뷔 싱글. 일본 정규 앨범 "Wishful"의 타이틀곡이기도 하다.',
     tracks: [{ title: 'Wish (Japanese Ver.)', youtubeId: 'ZgrEZmAgzM8' }],
   },
+  {
+    id: 'hands-up',
+    title: 'Hands Up',
+    releaseDate: '2023-10-08',
+    type: '싱글',
+    language: '일본어',
+    label: 'SM Entertainment · avex trax',
+    coverUrl: null,
+    color: '#FFAB40',
+    youtubeId: 'ZVcy7bQkBhA',
+    description:
+      'NCT WISH 정식 데뷔 전, "NCT New Team"이라는 이름으로 발표한 프리데뷔 싱글. 이후 데뷔하면서 일본반은 정규앨범 "Wishful"에, 한국어 버전은 미니앨범 "Steady"에 각각 다시 수록됐다.',
+    tracks: [{ title: 'Hands Up', youtubeId: 'ZVcy7bQkBhA' }],
+  },
 ];
