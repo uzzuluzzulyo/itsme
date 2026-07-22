@@ -188,7 +188,7 @@ export const members = [
     bloodType: 'A형',
     zodiac: '사자자리',
     chineseZodiac: '돼지띠',
-    mbti: 'ENTP-A',
+    mbti: 'INTP',
     dorm: '사쿠야와 2인실',
     hobby: '영화 감상, 그림 그리기',
     roleModel: 'NCT 도영, 해찬',
