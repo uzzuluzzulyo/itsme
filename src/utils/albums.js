@@ -11,6 +11,9 @@
  *
  * releaseDate 기준 최신순으로 정렬해서 사용한다.
  */
+import yoidonCover from '../assets/albums/yoidon.jpg';
+import boyMeetsGirlCover from '../assets/albums/boy-meets-girl.jpg';
+import odeToLoveCover from '../assets/albums/ode-to-love.jpg';
 
 /**
  * 앨범 썸네일 이미지 URL을 반환한다.
@@ -31,7 +34,7 @@ export const albums = [
     type: '싱글',
     language: '일본어',
     label: 'SM Entertainment · avex trax',
-    coverUrl: null,
+    coverUrl: yoidonCover,
     color: '#4FD8B0',
     youtubeId: 'E1d8dVSs0Bg',
     description:
@@ -45,7 +48,7 @@ export const albums = [
     type: '싱글',
     language: '일본어',
     label: 'SM Entertainment · avex trax',
-    coverUrl: null,
+    coverUrl: boyMeetsGirlCover,
     color: '#42A5F5',
     youtubeId: '2derLGPaliE',
     description:
@@ -59,7 +62,7 @@ export const albums = [
     type: '정규 1집',
     language: '한국어',
     label: 'SM Entertainment',
-    coverUrl: null,
+    coverUrl: odeToLoveCover,
     color: '#F06292',
     youtubeId: '1o5O2YvV3HU',
     description:
