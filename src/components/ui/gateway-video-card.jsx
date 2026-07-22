@@ -22,7 +22,8 @@ import { members } from '../../utils/members.js';
  */
 function GatewayVideoCard({ video }) {
   const [playing, setPlaying] = useState(false);
-  const featuredColor = members.find((item) => item.id === video.memberId)?.color ?? '#FFC107';
+  const memberColor = members.find((item) => item.id === video.memberId)?.color;
+  const featuredColor = memberColor ?? '#FFC107';
 
   return (
     <Card
@@ -37,7 +38,7 @@ function GatewayVideoCard({ video }) {
         flexDirection: 'column',
         transition: 'border-color 0.2s ease, transform 0.2s ease',
         boxShadow: video.featured ? `0 8px 24px ${featuredColor}40` : 'none',
-        '&:hover': { borderColor: video.featured ? featuredColor : 'primary.main', transform: 'translateY(-4px)' },
+        '&:hover': { borderColor: memberColor ?? 'primary.main', transform: 'translateY(-4px)' },
       }}
     >
       {playing ? (
