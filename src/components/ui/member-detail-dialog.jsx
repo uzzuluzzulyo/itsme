@@ -61,11 +61,11 @@ function MemberDetailDialog({ member, onClose }) {
           </Button>
         </Box>
 
-        <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap justifyContent="center" sx={{ mb: 2.5 }}>
+        <Box sx={{ display: 'flex', width: '100%', flexWrap: 'wrap', justifyContent: 'center', gap: 1, mb: 2.5 }}>
           <Chip label={member.position} size="small" sx={{ bgcolor: `${member.color}22`, color: member.color, fontWeight: 700 }} />
           <Chip label={member.nationality} size="small" variant="outlined" sx={{ borderColor: 'divider', color: 'text.secondary' }} />
           <Chip label={formatBirthDate(member.birthDate)} size="small" variant="outlined" sx={{ borderColor: 'divider', color: 'text.secondary' }} />
-        </Stack>
+        </Box>
 
         <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 2, rowGap: 1, mb: 2.5 }}>
           <InfoRow label="키" value={member.height} />
