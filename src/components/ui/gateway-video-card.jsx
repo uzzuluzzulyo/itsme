@@ -103,11 +103,8 @@ function GatewayVideoCard({ video }) {
             sx={{ bgcolor: '#FFC107', color: '#000', fontWeight: 800, fontSize: '0.7rem', mb: 1 }}
           />
         )}
-        <Typography sx={{ color: 'text.primary', fontWeight: 700, fontSize: '0.95rem', mb: 0.5 }}>
+        <Typography sx={{ color: 'text.primary', fontWeight: 700, fontSize: '0.95rem' }}>
           {video.title}
-        </Typography>
-        <Typography sx={{ color: 'text.secondary', fontSize: '0.8rem', lineHeight: 1.6 }}>
-          {video.blurb}
         </Typography>
       </CardContent>
     </Card>

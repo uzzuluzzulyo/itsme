@@ -15,7 +15,6 @@ export const gatewayVideos = [
     youtubeId: 'kzw-RTzpDTM',
     memberId: null,
     category: '예능',
-    blurb: '무대 위 모습과는 다른 6명의 케미와 리액션 부자 매력을 볼 수 있는 예능 영상.',
   },
   {
     id: 'riku-tears-nasa',
@@ -23,7 +22,6 @@ export const gatewayVideos = [
     youtubeId: '3cunglJwn1E',
     memberId: 'riku',
     category: '무대',
-    blurb: '많은 팬들을 입덕시킨 그 영상. 리쿠의 진심이 담긴 무대를 보면 왜 다들 위시에 빠지는지 알 수 있어요.',
   },
   {
     id: 'yushi-wensu-nomchin',
@@ -31,7 +29,6 @@ export const gatewayVideos = [
     youtubeId: 'W8j-J2YRi1E',
     memberId: 'yushi',
     category: '예능',
-    blurb: '유우시의 티키타카 매력이 담긴 영상. 보다 보면 저절로 웃음이 나요.',
   },
   {
     id: 'yushi-steady-fancam',
@@ -39,7 +36,6 @@ export const gatewayVideos = [
     youtubeId: 'n3FM40NaPAg',
     memberId: 'yushi',
     category: '무대',
-    blurb: "엠카운트다운 무대 직캠. 'Steady' 무대에서 유우시만의 분위기를 온전히 느낄 수 있어요.",
   },
   {
     id: 'yushi-poppop-fancam',
@@ -47,7 +43,6 @@ export const gatewayVideos = [
     youtubeId: 'prUVi_tGa0s',
     memberId: 'yushi',
     category: '무대',
-    blurb: "엠카운트다운 무대 직캠. 'poppop' 무대에서 유우시의 에너지를 가득 느낄 수 있어요.",
   },
   {
     id: 'yushi-ode-to-love-fancam',
@@ -56,7 +51,6 @@ export const gatewayVideos = [
     memberId: 'yushi',
     category: '무대',
     featured: true,
-    blurb: '주인장 최애 직캠. Ode to Love 무대의 유우시, 이 영상 하나면 다 설명돼요.',
   },
   {
     id: 'mikan-jamgi',
@@ -64,6 +58,5 @@ export const gatewayVideos = [
     youtubeId: 'qjjt0pPBeHs',
     memberId: 'yushi',
     category: '예능',
-    blurb: '유우시의 사소한 습관까지 귀여운, 보다 보면 웃음이 나는 예능 모먼트.',
   },
 ];
