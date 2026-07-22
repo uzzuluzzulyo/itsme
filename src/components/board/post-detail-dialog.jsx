@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
+import EditRoundedIcon from '@mui/icons-material/EditRounded';
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import MemberBadge from '../ui/member-badge.jsx';
 import { supabase } from '../../lib/supabase.js';
 import { getCurrentUserId } from '../../lib/auth.js';
@@ -19,18 +21,21 @@ import { getCurrentUserId } from '../../lib/auth.js';
 /**
  * PostDetailDialog 컴포넌트
  *
- * 게시글 상세 내용, 댓글, 좋아요를 보여주는 다이얼로그.
+ * 게시글 상세 내용, 댓글, 좋아요를 보여주는 다이얼로그. 작성자 본인일 때만
+ * 수정/삭제 버튼이 노출된다.
  *
  * Props:
  * @param {object} post - 게시글 데이터(itsme_users, itsme_categories 임베드 포함) [Required]
  * @param {boolean} open - 다이얼로그 표시 여부 [Required]
  * @param {function} onClose - 닫기 콜백 [Required]
  * @param {function} onLikeChange - 좋아요 토글 후 목록 갱신을 위한 콜백 [Optional]
+ * @param {function} onEdit - 수정 버튼 클릭 콜백. 게시글 객체를 인자로 받는다 [Optional]
+ * @param {function} onDeleted - 삭제 성공 후 목록 갱신을 위한 콜백 [Optional]
  *
  * Example usage:
- * <PostDetailDialog post={post} open={open} onClose={() => setOpen(false)} />
+ * <PostDetailDialog post={post} open={open} onClose={() => setOpen(false)} onEdit={handleEdit} onDeleted={fetchPosts} />
  */
-function PostDetailDialog({ post, open, onClose, onLikeChange }) {
+function PostDetailDialog({ post, open, onClose, onLikeChange, onEdit, onDeleted }) {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -87,12 +92,33 @@ function PostDetailDialog({ post, open, onClose, onLikeChange }) {
     await fetchComments(post.id);
   }
 
+  async function handleDelete() {
+    if (!post) return;
+    if (!window.confirm('이 글을 삭제할까요? 삭제하면 되돌릴 수 없어요.')) return;
+
+    await supabase.from('itsme_posts').delete().eq('id', post.id);
+    onDeleted?.();
+    onClose();
+  }
+
   if (!post) return null;
+
+  const isAuthor = String(post.user_id) === String(getCurrentUserId());
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth scroll="paper">
       <DialogContent sx={{ p: { xs: 2.5, md: 3.5 } }}>
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 1 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 0.5, mb: 1 }}>
+          {isAuthor && (
+            <>
+              <IconButton onClick={() => onEdit?.(post)} size="small" sx={{ color: 'text.secondary' }}>
+                <EditRoundedIcon fontSize="small" />
+              </IconButton>
+              <IconButton onClick={handleDelete} size="small" sx={{ color: 'text.secondary' }}>
+                <DeleteRoundedIcon fontSize="small" />
+              </IconButton>
+            </>
+          )}
           <IconButton onClick={onClose} size="small" sx={{ color: 'text.secondary' }}>
             <CloseRoundedIcon />
           </IconButton>

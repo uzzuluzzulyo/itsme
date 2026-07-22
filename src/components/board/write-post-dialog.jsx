@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import Box from '@mui/material/Box';
@@ -18,18 +18,20 @@ const IMAGE_BUCKET = 'itsme-posts';
 /**
  * WritePostDialog 컴포넌트
  *
- * 새 게시글 작성 다이얼로그. 이미지 첨부(선택)를 지원한다.
+ * 게시글 작성/수정 다이얼로그. 이미지 첨부(선택)를 지원한다.
  *
  * Props:
  * @param {boolean} open - 다이얼로그 표시 여부 [Required]
  * @param {function} onClose - 닫기 콜백 [Required]
  * @param {array} categories - itsme_categories 목록 [Required]
- * @param {function} onCreated - 작성 성공 후 목록 갱신 콜백 [Optional]
+ * @param {function} onCreated - 작성/수정 성공 후 목록 갱신 콜백 [Optional]
+ * @param {object} editPost - 수정 대상 게시글. 없으면 새 글 작성 모드 [Optional]
  *
  * Example usage:
  * <WritePostDialog open={open} onClose={() => setOpen(false)} categories={categories} onCreated={fetchPosts} />
  */
-function WritePostDialog({ open, onClose, categories, onCreated }) {
+function WritePostDialog({ open, onClose, categories, onCreated, editPost = null }) {
+  const isEditing = Boolean(editPost);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [categoryId, setCategoryId] = useState('');
@@ -37,6 +39,20 @@ function WritePostDialog({ open, onClose, categories, onCreated }) {
   const [imagePreview, setImagePreview] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (open && editPost) {
+      setTitle(editPost.title ?? '');
+      setContent(editPost.content ?? '');
+      setCategoryId(editPost.category_id ?? '');
+      setImageFile(null);
+      setImagePreview(editPost.image_url ?? '');
+      setError('');
+    } else if (open && !editPost) {
+      reset();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, editPost]);
 
   function reset() {
     setTitle('');
@@ -67,7 +83,7 @@ function WritePostDialog({ open, onClose, categories, onCreated }) {
 
     setSubmitting(true);
 
-    let imageUrl = null;
+    let imageUrl = isEditing ? (editPost.image_url ?? null) : null;
     if (imageFile) {
       const path = `${userId}/${Date.now()}-${imageFile.name}`;
       const { error: uploadError } = await supabase.storage.from(IMAGE_BUCKET).upload(path, imageFile);
@@ -79,17 +95,20 @@ function WritePostDialog({ open, onClose, categories, onCreated }) {
       imageUrl = supabase.storage.from(IMAGE_BUCKET).getPublicUrl(path).data.publicUrl;
     }
 
-    const { error: insertError } = await supabase.from('itsme_posts').insert({
+    const payload = {
       title: title.trim(),
       content: content.trim(),
       category_id: categoryId,
-      user_id: userId,
       image_url: imageUrl,
-    });
+    };
+
+    const { error: submitError } = isEditing
+      ? await supabase.from('itsme_posts').update(payload).eq('id', editPost.id)
+      : await supabase.from('itsme_posts').insert({ ...payload, user_id: userId });
     setSubmitting(false);
 
-    if (insertError) {
-      setError('글 등록에 실패했습니다.');
+    if (submitError) {
+      setError(isEditing ? '글 수정에 실패했습니다.' : '글 등록에 실패했습니다.');
       return;
     }
 
@@ -102,7 +121,9 @@ function WritePostDialog({ open, onClose, categories, onCreated }) {
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
       <DialogContent sx={{ p: { xs: 2.5, md: 3.5 } }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-          <Typography sx={{ color: 'text.primary', fontWeight: 800, fontSize: '1.1rem' }}>글쓰기</Typography>
+          <Typography sx={{ color: 'text.primary', fontWeight: 800, fontSize: '1.1rem' }}>
+            {isEditing ? '글 수정' : '글쓰기'}
+          </Typography>
           <IconButton onClick={onClose} size="small" sx={{ color: 'text.secondary' }}>
             <CloseRoundedIcon />
           </IconButton>
@@ -166,7 +187,9 @@ function WritePostDialog({ open, onClose, categories, onCreated }) {
             variant="contained"
             sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', fontWeight: 700 }}
           >
-            {submitting ? (imageFile ? '업로드 중...' : '등록 중...') : '등록하기'}
+            {submitting
+              ? (imageFile ? '업로드 중...' : isEditing ? '수정 중...' : '등록 중...')
+              : isEditing ? '수정하기' : '등록하기'}
           </Button>
         </Stack>
       </DialogContent>

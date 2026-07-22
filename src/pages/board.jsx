@@ -25,6 +25,7 @@ function Board() {
   const [loading, setLoading] = useState(true);
   const [selectedPost, setSelectedPost] = useState(null);
   const [writeOpen, setWriteOpen] = useState(false);
+  const [editPost, setEditPost] = useState(null);
 
   const fetchCategories = async () => {
     const { data } = await supabase.from('itsme_categories').select('*').order('id');
@@ -230,12 +231,21 @@ function Board() {
         open={Boolean(selectedPost)}
         onClose={() => setSelectedPost(null)}
         onLikeChange={fetchPosts}
+        onEdit={(post) => {
+          setSelectedPost(null);
+          setEditPost(post);
+        }}
+        onDeleted={fetchPosts}
       />
       <WritePostDialog
-        open={writeOpen}
-        onClose={() => setWriteOpen(false)}
+        open={writeOpen || Boolean(editPost)}
+        onClose={() => {
+          setWriteOpen(false);
+          setEditPost(null);
+        }}
         categories={categories}
         onCreated={fetchPosts}
+        editPost={editPost}
       />
     </Box>
   );
