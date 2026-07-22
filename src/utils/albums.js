@@ -14,6 +14,15 @@
 import yoidonCover from '../assets/albums/yoidon.jpg';
 import boyMeetsGirlCover from '../assets/albums/boy-meets-girl.jpg';
 import odeToLoveCover from '../assets/albums/ode-to-love.jpg';
+import wishlistCover from '../assets/albums/wishlist.jpg';
+import wishfulCover from '../assets/albums/wishful.jpg';
+import steadyCover from '../assets/albums/steady.jpg';
+import wishCover from '../assets/albums/wish.jpg';
+import colorCover from '../assets/albums/color.jpg';
+import poppopCover from '../assets/albums/poppop.jpg';
+import songbirdKrCover from '../assets/albums/songbird-kr.jpg';
+import songbirdJpCover from '../assets/albums/songbird-jp.jpg';
+import miracleCover from '../assets/albums/miracle.jpg';
 
 /**
  * 앨범 썸네일 이미지 URL을 반환한다.
@@ -87,7 +96,7 @@ export const albums = [
     type: '미니 1집',
     language: '일본어',
     label: 'SM Entertainment · avex trax',
-    coverUrl: null,
+    coverUrl: wishlistCover,
     color: '#7C4DFF',
     youtubeId: '8s23tBtQciU',
     description: 'NCT WISH의 첫 일본 미니 앨범. 타이틀곡은 "Hello Mellow".',
@@ -108,7 +117,7 @@ export const albums = [
     type: '미니 3집',
     language: '한국어',
     label: 'SM Entertainment · Kakao Entertainment',
-    coverUrl: null,
+    coverUrl: colorCover,
     color: '#FFCA28',
     youtubeId: '28dAfmIAlCo',
     description: '세 번째 한국 미니 앨범. "Surf"가 선공개곡으로 먼저 발매됐고, 타이틀곡은 "COLOR".',
@@ -129,7 +138,7 @@ export const albums = [
     type: '미니 2집',
     language: '한국어',
     label: 'SM Entertainment · Kakao Entertainment',
-    coverUrl: null,
+    coverUrl: poppopCover,
     color: '#66BB6A',
     youtubeId: 'LNETckymbzk',
     description: '첫 일본 정규 앨범 이후 4개월 만의 컴백으로, 4개월간 활동을 쉬었던 리쿠가 복귀한 앨범이기도 하다.',
@@ -149,7 +158,7 @@ export const albums = [
     type: '정규 1집',
     language: '일본어',
     label: 'SM Entertainment · avex trax',
-    coverUrl: null,
+    coverUrl: wishfulCover,
     color: '#4FC3F7',
     youtubeId: 'NAhEwvI9TGE',
     description:
@@ -177,7 +186,7 @@ export const albums = [
     type: '미니 1집',
     language: '한국어',
     label: 'SM Entertainment · Kakao Entertainment',
-    coverUrl: null,
+    coverUrl: steadyCover,
     color: '#A78BFA',
     youtubeId: 'IKlkZZv76Ho',
     description:
@@ -199,7 +208,7 @@ export const albums = [
     type: '싱글',
     language: '한국어',
     label: 'SM Entertainment',
-    coverUrl: null,
+    coverUrl: songbirdKrCover,
     color: '#EF5350',
     youtubeId: '2XqVNFBtVo4',
     description: '일본반에 이은 한국어 버전 싱글. "Cupid Museum에서 사라진 새(Missing Bird in Cupid Museum)" 컨셉의 티저로 화제를 모았다.',
@@ -215,7 +224,7 @@ export const albums = [
     type: '싱글',
     language: '일본어',
     label: 'avex trax',
-    coverUrl: null,
+    coverUrl: songbirdJpCover,
     color: '#FF7043',
     youtubeId: 'C_qALZPuK8I',
     description: 'NCT WISH의 두 번째 일본 싱글.',
@@ -231,7 +240,7 @@ export const albums = [
     type: '싱글',
     language: '한국어',
     label: 'SM Entertainment',
-    coverUrl: null,
+    coverUrl: wishCover,
     color: '#26C6DA',
     youtubeId: 'hvQZs3k6Ytk',
     description: '데뷔 싱글 "Wish"의 한국반. 올드스쿨 힙합 장르로, 클래식 명곡의 샘플링이 포함됐다.',
@@ -247,7 +256,7 @@ export const albums = [
     type: '싱글',
     language: '일본어',
     label: 'avex trax',
-    coverUrl: null,
+    coverUrl: wishCover,
     color: '#8FEDD1',
     youtubeId: 'ZgrEZmAgzM8',
     description: '2024년 2월 21일 데뷔한 NCT WISH의 데뷔 싱글. 일본 정규 앨범 "Wishful"의 타이틀곡이기도 하다.',
@@ -266,5 +275,72 @@ export const albums = [
     description:
       'NCT WISH 정식 데뷔 전, "NCT New Team"이라는 이름으로 발표한 프리데뷔 싱글. 이후 데뷔하면서 일본반은 정규앨범 "Wishful"에, 한국어 버전은 미니앨범 "Steady"에 각각 다시 수록됐다.',
     tracks: [{ title: 'Hands Up', youtubeId: 'ZVcy7bQkBhA' }],
+  },
+  {
+    id: 'same-sky',
+    title: 'Same Sky',
+    releaseDate: '2026-02-27',
+    type: 'OST',
+    language: '일본어',
+    label: 'SM Entertainment · avex trax',
+    coverUrl: null,
+    color: '#26A69A',
+    youtubeId: 'aE7nSdTd86o',
+    description:
+      'NCT WISH의 첫 일본 OST. 일본 TV 도쿄 드라마 "Falling in Love at First Bite"의 삽입곡으로, 따뜻한 레트로 팝 R&B 사운드에 희망적인 가사를 담았다.',
+    tracks: [{ title: 'Same Sky', youtubeId: 'aE7nSdTd86o' }],
+  },
+  {
+    id: 'wishing-star',
+    title: 'Wishing Star',
+    releaseDate: '2026-01-07',
+    type: 'OST',
+    language: '한국어',
+    label: 'Genie Music',
+    coverUrl: null,
+    color: '#29B6F6',
+    youtubeId: 'Ry12zQzkGPk',
+    description: '모바일 게임 "위시캣 매직카드"의 오리지널 사운드트랙으로 참여한 곡.',
+    tracks: [{ title: 'Wishing Star', youtubeId: 'Ry12zQzkGPk' }],
+  },
+  {
+    id: 'princeping-song',
+    title: 'Princeping Song',
+    releaseDate: '2025-12-11',
+    type: 'OST',
+    language: '한국어',
+    label: 'SAMG Entertainment',
+    coverUrl: null,
+    color: '#7E57C2',
+    youtubeId: 'Na18owmxe1w',
+    description: '애니메이션 "캐치! 티니핑" 시즌6(프린세스 캐치! 티니핑)의 OST로 참여한 곡.',
+    tracks: [{ title: '프린스핑송 (Princeping Song)', youtubeId: 'Na18owmxe1w' }],
+  },
+  {
+    id: 'would-you-marry-me',
+    title: 'If You Love Me Let Me Know',
+    releaseDate: '2025-10-17',
+    type: 'OST',
+    language: '한국어',
+    label: 'SM Entertainment',
+    coverUrl: null,
+    color: '#FDD835',
+    youtubeId: 'w2OgFNzmiO4',
+    description: '드라마 "우주메리미(Would You Marry Me?)" Part.3 OST로 참여한 곡.',
+    tracks: [{ title: '이 세상 끝까지 (If You Love Me Let Me Know)', youtubeId: 'w2OgFNzmiO4' }],
+  },
+  {
+    id: 'miracle',
+    title: 'Miracle',
+    releaseDate: '2025-01-22',
+    type: '싱글',
+    language: '한국어',
+    label: 'SM Entertainment',
+    coverUrl: miracleCover,
+    color: '#EC407A',
+    youtubeId: 'R319nIK_P4s',
+    description:
+      'SM 30주년 기념 앨범 "2025 SMTOWN : THE CULTURE, THE FUTURE"의 두 번째 선공개곡. 슈퍼주니어의 2005년 곡 "Miracle"을 리메이크했다.',
+    tracks: [{ title: 'Miracle', youtubeId: 'R319nIK_P4s' }],
   },
 ];
