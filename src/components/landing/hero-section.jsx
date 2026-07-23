@@ -44,7 +44,7 @@ function HeroSection() {
         py: { xs: 8, md: 14 },
         px: { xs: 2, md: 3 },
         overflow: 'hidden',
-        bgcolor: '#0B0714',
+        bgcolor: 'background.default',
       }}
     >
       <LightRaysBackground />
@@ -59,7 +59,7 @@ function HeroSection() {
           height: { xs: 300, md: 460 },
           ml: { xs: -210, md: -350 },
           borderRadius: '50%',
-          background: 'radial-gradient(ellipse, rgba(182,120,255,0.35) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse, rgba(182,120,255,0.2) 0%, transparent 70%)',
           filter: 'blur(10px)',
         }}
       />
@@ -73,7 +73,7 @@ function HeroSection() {
           width: { xs: 220, md: 340 },
           height: { xs: 220, md: 340 },
           borderRadius: '50%',
-          background: (theme) => `radial-gradient(circle, ${theme.palette.secondary.dark}3D 0%, transparent 70%)`,
+          background: (theme) => `radial-gradient(circle, ${theme.palette.secondary.dark}28 0%, transparent 70%)`,
           filter: 'blur(10px)',
         }}
       />

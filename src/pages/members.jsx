@@ -10,6 +10,7 @@ import Stack from '@mui/material/Stack';
 import GlowCard from '../components/ui/glow-card.jsx';
 import MemberAvatar from '../components/ui/member-avatar.jsx';
 import MemberDetailDialog from '../components/ui/member-detail-dialog.jsx';
+import LightRaysBackground from '../components/ui/light-rays-background.jsx';
 import { members } from '../utils/members.js';
 import groupPhoto from '../assets/members/group.jpg';
 
@@ -30,11 +31,13 @@ function Members() {
   }, [searchParams]);
 
   return (
-    <Box sx={{ width: '100%', pb: { xs: 6, md: 10 } }}>
+    <Box sx={{ width: '100%', pb: { xs: 6, md: 10 }, position: 'relative', overflow: 'hidden' }}>
+      <LightRaysBackground rayCount={4} corner="bottom-left" />
       <Box
         sx={{
           width: '100%',
           position: 'relative',
+          zIndex: 1,
           aspectRatio: { xs: '3 / 2', md: '3 / 1' },
           overflow: 'hidden',
         }}
@@ -71,7 +74,7 @@ function Members() {
         </Box>
       </Box>
 
-      <Container maxWidth="lg" sx={{ pt: { xs: 4, md: 6 } }}>
+      <Container maxWidth="lg" sx={{ pt: { xs: 4, md: 6 }, position: 'relative', zIndex: 1 }}>
         <Typography sx={{ color: 'text.secondary', textAlign: 'center', mb: { xs: 4, md: 6 } }}>
           TO THE WORLD, 여긴 엔시티! NCT WISH입니다.
         </Typography>

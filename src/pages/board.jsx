@@ -14,6 +14,7 @@ import GlowCard from '../components/ui/glow-card.jsx';
 import MemberBadge from '../components/ui/member-badge.jsx';
 import PostDetailDialog from '../components/board/post-detail-dialog.jsx';
 import WritePostDialog from '../components/board/write-post-dialog.jsx';
+import LightRaysBackground from '../components/ui/light-rays-background.jsx';
 import { supabase } from '../lib/supabase.js';
 
 function Board() {
@@ -80,8 +81,9 @@ function Board() {
   }, [selectedCategory]);
 
   return (
-    <Box sx={{ width: '100%', minHeight: '70vh', py: { xs: 4, md: 6 }, px: { xs: 2, md: 3 }, position: 'relative' }}>
-      <Container maxWidth="md">
+    <Box sx={{ width: '100%', minHeight: '70vh', py: { xs: 4, md: 6 }, px: { xs: 2, md: 3 }, position: 'relative', overflow: 'hidden' }}>
+      <LightRaysBackground rayCount={3} corner="bottom-left" />
+      <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
         <Typography
           variant="h4"
           sx={{ color: 'text.primary', fontWeight: 800, mb: 3, fontSize: { xs: '1.6rem', md: '2.1rem' } }}

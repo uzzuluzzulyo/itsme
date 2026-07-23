@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import GlowCard from '../components/ui/glow-card.jsx';
+import LightRaysBackground from '../components/ui/light-rays-background.jsx';
 
 function About() {
   return (
@@ -14,9 +15,12 @@ function About() {
         justifyContent: 'center',
         alignItems: 'center',
         py: { xs: 4, md: 8 },
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
-      <Container maxWidth="sm">
+      <LightRaysBackground rayCount={3} />
+      <Container maxWidth="sm" sx={{ position: 'relative', zIndex: 1 }}>
         <GlowCard alwaysGlow>
           <CardContent sx={{ p: { xs: 3, md: 5 }, textAlign: 'center' }}>
             <Typography

@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Chip from '@mui/material/Chip';
 import GatewayVideoCard from '../components/ui/gateway-video-card.jsx';
 import MemberAvatar from '../components/ui/member-avatar.jsx';
+import LightRaysBackground from '../components/ui/light-rays-background.jsx';
 import { gatewayVideos } from '../utils/gateway-videos.js';
 import { members } from '../utils/members.js';
 
@@ -23,8 +24,9 @@ function GatewayVideos() {
   const otherVideos = videos.filter((video) => video.category !== '무대');
 
   return (
-    <Box sx={{ width: '100%', py: { xs: 4, md: 8 }, px: { xs: 2, md: 3 } }}>
-      <Container maxWidth="lg">
+    <Box sx={{ width: '100%', py: { xs: 4, md: 8 }, px: { xs: 2, md: 3 }, position: 'relative', overflow: 'hidden' }}>
+      <LightRaysBackground rayCount={3} />
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         {member ? (
           <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
             <MemberAvatar member={member} size={72} />
