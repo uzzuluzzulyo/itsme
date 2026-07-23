@@ -31,7 +31,7 @@ function Members() {
   }, [searchParams]);
 
   return (
-    <Box sx={{ width: '100%', pb: { xs: 6, md: 10 }, position: 'relative', overflow: 'hidden' }}>
+    <Box sx={{ width: '100%', pb: { xs: 6, md: 10 }, position: 'relative', overflow: 'hidden', bgcolor: '#000000' }}>
       <LightRaysBackground beamCount={0} />
       <Box
         sx={{

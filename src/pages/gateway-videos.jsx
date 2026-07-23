@@ -24,7 +24,7 @@ function GatewayVideos() {
   const otherVideos = videos.filter((video) => video.category !== '무대');
 
   return (
-    <Box sx={{ width: '100%', py: { xs: 4, md: 8 }, px: { xs: 2, md: 3 }, position: 'relative', overflow: 'hidden' }}>
+    <Box sx={{ width: '100%', py: { xs: 4, md: 8 }, px: { xs: 2, md: 3 }, position: 'relative', overflow: 'hidden', bgcolor: '#000000' }}>
       <LightRaysBackground beamCount={0} />
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         {member ? (

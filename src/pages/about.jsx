@@ -17,6 +17,7 @@ function About() {
         py: { xs: 4, md: 8 },
         position: 'relative',
         overflow: 'hidden',
+        bgcolor: '#000000',
       }}
     >
       <LightRaysBackground beamCount={0} />

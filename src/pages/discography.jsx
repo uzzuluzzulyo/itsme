@@ -14,7 +14,7 @@ function Discography() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <Box sx={{ width: '100%', position: 'relative', py: { xs: 4, md: 8 }, px: { xs: 2, md: 3 }, overflow: 'hidden' }}>
+    <Box sx={{ width: '100%', position: 'relative', py: { xs: 4, md: 8 }, px: { xs: 2, md: 3 }, overflow: 'hidden', bgcolor: '#000000' }}>
       <StarfieldBackground />
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
