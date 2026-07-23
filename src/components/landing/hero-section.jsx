@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { NavLink } from 'react-router-dom';
 import Container from '@mui/material/Container';
+import LightRaysBackground from '../ui/light-rays-background.jsx';
 
 function HeroSection() {
   const primaryGlowRef = useRef(null);
@@ -43,9 +44,10 @@ function HeroSection() {
         py: { xs: 8, md: 14 },
         px: { xs: 2, md: 3 },
         overflow: 'hidden',
-        bgcolor: 'background.default',
+        bgcolor: '#0B0714',
       }}
     >
+      <LightRaysBackground />
       <Box
         ref={primaryGlowRef}
         aria-hidden
@@ -57,7 +59,7 @@ function HeroSection() {
           height: { xs: 300, md: 460 },
           ml: { xs: -210, md: -350 },
           borderRadius: '50%',
-          background: (theme) => `radial-gradient(ellipse, ${theme.palette.primary.dark}4D 0%, transparent 70%)`,
+          background: 'radial-gradient(ellipse, rgba(182,120,255,0.35) 0%, transparent 70%)',
           filter: 'blur(10px)',
         }}
       />
