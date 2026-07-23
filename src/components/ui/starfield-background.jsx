@@ -64,7 +64,7 @@ function StarfieldBackground({ starCount = 60, shootingStarCount = 4 }) {
         overflow: 'hidden',
         zIndex: 0,
         pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(124,77,255,0.12), transparent 70%)',
+        background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(124,77,255,0.04), transparent 70%)',
       }}
     >
       {stars.map((star, index) => (

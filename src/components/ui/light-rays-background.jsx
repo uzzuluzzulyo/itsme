@@ -80,9 +80,9 @@ function LightRaysBackground({ starCount = 40, beamCount = 2 }) {
         zIndex: 0,
         pointerEvents: 'none',
         background:
-          'radial-gradient(ellipse 60% 55% at 50% -10%, rgba(124,77,255,0.16), transparent 65%),' +
-          'radial-gradient(ellipse 55% 45% at 8% 105%, rgba(214,143,255,0.12), transparent 70%),' +
-          'radial-gradient(ellipse 40% 40% at 100% 100%, rgba(94,53,177,0.14), transparent 70%)',
+          'radial-gradient(ellipse 55% 45% at 50% -10%, rgba(124,77,255,0.06), transparent 60%),' +
+          'radial-gradient(ellipse 45% 35% at 8% 105%, rgba(214,143,255,0.045), transparent 65%),' +
+          'radial-gradient(ellipse 35% 30% at 100% 100%, rgba(94,53,177,0.05), transparent 65%)',
       }}
     >
       {/* 필름 그레인 텍스처 */}

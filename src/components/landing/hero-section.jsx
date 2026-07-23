@@ -59,7 +59,7 @@ function HeroSection() {
           height: { xs: 300, md: 460 },
           ml: { xs: -210, md: -350 },
           borderRadius: '50%',
-          background: 'radial-gradient(ellipse, rgba(182,120,255,0.2) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse, rgba(182,120,255,0.08) 0%, transparent 70%)',
           filter: 'blur(10px)',
         }}
       />
@@ -73,7 +73,7 @@ function HeroSection() {
           width: { xs: 220, md: 340 },
           height: { xs: 220, md: 340 },
           borderRadius: '50%',
-          background: (theme) => `radial-gradient(circle, ${theme.palette.secondary.dark}28 0%, transparent 70%)`,
+          background: (theme) => `radial-gradient(circle, ${theme.palette.secondary.dark}14 0%, transparent 70%)`,
           filter: 'blur(10px)',
         }}
       />
