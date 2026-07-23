@@ -81,7 +81,7 @@ function Members() {
 
         <Grid container spacing={{ xs: 2.5, md: 3.5 }}>
           {members.map((member) => (
-            <Grid key={member.id} size={{ xs: 6, sm: 4, md: 3 }}>
+            <Grid key={member.id} size={{ xs: 6, sm: 6, md: 4 }}>
               <GlowCard sx={{ height: '100%', cursor: 'pointer' }}>
                 <CardContent
                   onClick={() => setSelected(member)}

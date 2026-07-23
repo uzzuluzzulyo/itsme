@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import Box from '@mui/material/Box';
 import { keyframes } from '@mui/material/styles';
-import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 
 const twinkle = keyframes`
   0%, 100% { opacity: 0.15; transform: scale(0.8); }
@@ -16,11 +15,6 @@ const beamBreathe = keyframes`
 const glowBreathe = keyframes`
   0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.9); }
   50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
-`;
-
-const sparklePulse = keyframes`
-  0%, 100% { opacity: 0.4; transform: scale(0.85) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1.1) rotate(8deg); }
 `;
 
 const NOISE_SVG =
@@ -138,30 +132,6 @@ function LightRaysBackground({ starCount = 40, beamCount = 2 }) {
           />
         </Box>
       ))}
-
-      {/* 큰 스파클 장식 */}
-      <AutoAwesomeRoundedIcon
-        sx={{
-          position: 'absolute',
-          top: '12%',
-          left: '10%',
-          fontSize: { xs: 24, md: 34 },
-          color: '#FFFFFF',
-          filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.55))',
-          animation: `${sparklePulse} 5s ease-in-out infinite`,
-        }}
-      />
-      <AutoAwesomeRoundedIcon
-        sx={{
-          position: 'absolute',
-          top: '68%',
-          right: '14%',
-          fontSize: { xs: 16, md: 22 },
-          color: '#E7D6FF',
-          filter: 'drop-shadow(0 0 6px rgba(231,214,255,0.55))',
-          animation: `${sparklePulse} 6.5s ease-in-out 1.2s infinite`,
-        }}
-      />
 
       {stars.map((star, index) => (
         <Box

@@ -30,7 +30,7 @@ function Discography() {
 
         <Grid container spacing={{ xs: 2.5, md: 3.5 }}>
           {sortedAlbums.map((album) => (
-            <Grid key={album.id} size={{ xs: 6, sm: 4, md: 3 }}>
+            <Grid key={album.id} size={{ xs: 6, sm: 6, md: 4 }}>
               <AlbumCard album={album} onClick={() => setSelected(album)} />
             </Grid>
           ))}
