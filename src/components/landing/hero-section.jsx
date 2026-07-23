@@ -47,7 +47,7 @@ function HeroSection() {
         bgcolor: 'background.default',
       }}
     >
-      <LightRaysBackground />
+      <LightRaysBackground beamCount={0} />
       <Box
         ref={primaryGlowRef}
         aria-hidden

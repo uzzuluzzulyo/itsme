@@ -19,7 +19,7 @@ function About() {
         overflow: 'hidden',
       }}
     >
-      <LightRaysBackground beamCount={2} />
+      <LightRaysBackground beamCount={0} />
       <Container maxWidth="sm" sx={{ position: 'relative', zIndex: 1 }}>
         <GlowCard alwaysGlow>
           <CardContent sx={{ p: { xs: 3, md: 5 }, textAlign: 'center' }}>
