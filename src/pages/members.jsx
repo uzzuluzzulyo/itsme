@@ -32,7 +32,7 @@ function Members() {
 
   return (
     <Box sx={{ width: '100%', pb: { xs: 6, md: 10 }, position: 'relative', overflow: 'hidden' }}>
-      <LightRaysBackground rayCount={4} corner="bottom-left" />
+      <LightRaysBackground beamCount={2} />
       <Box
         sx={{
           width: '100%',
