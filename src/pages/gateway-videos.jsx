@@ -58,9 +58,30 @@ function GatewayVideos() {
             >
               위시 입덕 영상
             </Typography>
-            <Typography sx={{ color: 'text.secondary', textAlign: 'center', mb: { xs: 4, md: 6 } }}>
+            <Typography sx={{ color: 'text.secondary', textAlign: 'center', mb: { xs: 3, md: 4 } }}>
               아직 위시가 낯설다면, 여기부터 보세요 · 카드를 누르면 바로 재생돼요
             </Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: { xs: 2, md: 3 }, mb: { xs: 5, md: 6 } }}>
+              {members.map((item) => (
+                <Box
+                  key={item.id}
+                  component={RouterLink}
+                  to={`/gateway?member=${item.id}`}
+                  sx={{
+                    textDecoration: 'none',
+                    textAlign: 'center',
+                    cursor: 'pointer',
+                    transition: 'transform 0.15s ease',
+                    '&:hover': { transform: 'translateY(-3px)' },
+                  }}
+                >
+                  <MemberAvatar member={item} size={64} />
+                  <Typography sx={{ color: 'text.secondary', fontSize: '0.75rem', mt: 0.5 }}>
+                    {item.stageName}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
           </>
         )}
 
