@@ -66,4 +66,11 @@ export const gatewayVideos = [
     memberId: 'sion',
     category: '무대',
   },
+  {
+    id: 'bap-meokjil-ttan-usgiji-ma',
+    title: '밥 먹을 땐 웃기지마',
+    youtubeId: 'jH3WnMeSZ_Y',
+    memberId: null,
+    category: '예능',
+  },
 ];
