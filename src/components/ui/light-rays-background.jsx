@@ -130,8 +130,9 @@ function LightRaysBackground({ starCount = 40, beamCount = 2 }) {
               height: beam.glowSize,
               transform: 'translate(-50%, -50%)',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.22) 45%, transparent 72%)',
-              filter: 'blur(2px)',
+              background:
+                'radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.28) 25%, rgba(255,255,255,0.1) 50%, transparent 75%)',
+              filter: 'blur(6px)',
               animation: `${glowBreathe} ${beam.glowDuration}s ease-in-out ${beam.glowDelay}s infinite`,
             }}
           />

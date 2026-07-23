@@ -25,7 +25,7 @@ function GatewayVideos() {
 
   return (
     <Box sx={{ width: '100%', py: { xs: 4, md: 8 }, px: { xs: 2, md: 3 }, position: 'relative', overflow: 'hidden' }}>
-      <LightRaysBackground beamCount={2} />
+      <LightRaysBackground beamCount={0} />
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         {member ? (
           <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>

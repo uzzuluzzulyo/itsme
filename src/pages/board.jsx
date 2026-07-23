@@ -82,7 +82,7 @@ function Board() {
 
   return (
     <Box sx={{ width: '100%', minHeight: '70vh', py: { xs: 4, md: 6 }, px: { xs: 2, md: 3 }, position: 'relative', overflow: 'hidden' }}>
-      <LightRaysBackground beamCount={2} />
+      <LightRaysBackground beamCount={0} />
       <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
         <Typography
           variant="h4"

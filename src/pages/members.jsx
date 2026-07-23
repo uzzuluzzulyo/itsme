@@ -32,7 +32,7 @@ function Members() {
 
   return (
     <Box sx={{ width: '100%', pb: { xs: 6, md: 10 }, position: 'relative', overflow: 'hidden' }}>
-      <LightRaysBackground beamCount={2} />
+      <LightRaysBackground beamCount={0} />
       <Box
         sx={{
           width: '100%',
@@ -79,15 +79,15 @@ function Members() {
           TO THE WORLD, 여긴 엔시티! NCT WISH입니다.
         </Typography>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={{ xs: 3, md: 4.5 }}>
           {members.map((member) => (
             <Grid key={member.id} size={{ xs: 12, sm: 6, md: 4 }}>
               <GlowCard sx={{ height: '100%', cursor: 'pointer' }} alwaysGlow>
                 <CardContent
                   onClick={() => setSelected(member)}
-                  sx={{ p: { xs: 3, md: 3.5 }, textAlign: 'center' }}
+                  sx={{ p: { xs: 2.5, md: 3 }, textAlign: 'center' }}
                 >
-                  <MemberAvatar member={member} size={96} />
+                  <MemberAvatar member={member} size={76} />
                   <Typography sx={{ color: 'text.primary', fontWeight: 800, fontSize: '1.25rem', mt: 2 }}>
                     {member.stageName}
                   </Typography>

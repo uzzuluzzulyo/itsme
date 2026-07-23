@@ -28,7 +28,7 @@ function Discography() {
           데뷔부터 지금까지, NCT WISH의 앨범을 모두 모았어요 · 카드를 누르면 수록곡을 볼 수 있어요
         </Typography>
 
-        <Grid container spacing={2.5}>
+        <Grid container spacing={{ xs: 2.5, md: 4 }}>
           {sortedAlbums.map((album) => (
             <Grid key={album.id} size={{ xs: 6, sm: 6, md: 4 }}>
               <AlbumCard album={album} onClick={() => setSelected(album)} />
