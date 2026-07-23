@@ -59,4 +59,11 @@ export const gatewayVideos = [
     memberId: 'yushi',
     category: '예능',
   },
+  {
+    id: 'sion-surf-facecam',
+    title: "시온 페이스캠 'Surf'",
+    youtubeId: '7_yaB5jPM2c',
+    memberId: 'sion',
+    category: '무대',
+  },
 ];
