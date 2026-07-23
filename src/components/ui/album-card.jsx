@@ -81,16 +81,16 @@ function AlbumCard({ album, onClick }) {
           </Typography>
         )}
       </Box>
-      <CardContent sx={{ p: 2 }}>
+      <CardContent sx={{ p: 1.5 }}>
         <Chip
           label={album.type}
           size="small"
-          sx={{ bgcolor: `${album.color}22`, color: album.color, fontWeight: 700, mb: 1 }}
+          sx={{ bgcolor: `${album.color}22`, color: album.color, fontWeight: 700, fontSize: '0.68rem', height: 20, mb: 0.75 }}
         />
-        <Typography sx={{ color: 'text.primary', fontWeight: 700, fontSize: '0.95rem', mb: 0.5 }} noWrap>
+        <Typography sx={{ color: 'text.primary', fontWeight: 700, fontSize: '0.85rem', mb: 0.25 }} noWrap>
           {album.title}
         </Typography>
-        <Typography sx={{ color: 'text.disabled', fontSize: '0.75rem' }}>
+        <Typography sx={{ color: 'text.disabled', fontSize: '0.68rem' }}>
           {formatDate(album.releaseDate)} · {album.language}
         </Typography>
       </CardContent>

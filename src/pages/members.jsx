@@ -79,43 +79,47 @@ function Members() {
           TO THE WORLD, 여긴 엔시티! NCT WISH입니다.
         </Typography>
 
-        <Grid container spacing={{ xs: 3, md: 4.5 }}>
+        <Grid container spacing={{ xs: 2.5, md: 3.5 }}>
           {members.map((member) => (
-            <Grid key={member.id} size={{ xs: 12, sm: 6, md: 4 }}>
-              <GlowCard sx={{ height: '100%', cursor: 'pointer' }} alwaysGlow>
+            <Grid key={member.id} size={{ xs: 6, sm: 4, md: 3 }}>
+              <GlowCard sx={{ height: '100%', cursor: 'pointer' }}>
                 <CardContent
                   onClick={() => setSelected(member)}
-                  sx={{ p: { xs: 2.5, md: 3 }, textAlign: 'center' }}
+                  sx={{ p: { xs: 2, md: 2.25 }, textAlign: 'center' }}
                 >
-                  <MemberAvatar member={member} size={76} />
-                  <Typography sx={{ color: 'text.primary', fontWeight: 800, fontSize: '1.25rem', mt: 2 }}>
+                  <MemberAvatar member={member} size={56} />
+                  <Typography sx={{ color: 'text.primary', fontWeight: 800, fontSize: '1rem', mt: 1.5 }}>
                     {member.stageName}
                   </Typography>
-                  <Typography sx={{ color: 'text.secondary', fontSize: '0.8rem', mb: 2 }}>
+                  <Typography sx={{ color: 'text.secondary', fontSize: '0.7rem', mb: 1.5 }}>
                     {member.stageNameEn} · {member.realName}
                   </Typography>
 
-                  <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap justifyContent="center" sx={{ mb: 2 }}>
+                  <Stack direction="row" spacing={0.5} flexWrap="wrap" useFlexGap justifyContent="center" sx={{ mb: 1.5 }}>
                     <Chip
                       label={member.position}
                       size="small"
-                      sx={{ bgcolor: `${member.color}22`, color: member.color, fontWeight: 700 }}
+                      sx={{ bgcolor: `${member.color}22`, color: member.color, fontWeight: 700, fontSize: '0.68rem', height: 22 }}
                     />
                     <Chip
                       label={member.nationality}
                       size="small"
                       variant="outlined"
-                      sx={{ borderColor: 'divider', color: 'text.secondary' }}
-                    />
-                    <Chip
-                      label={formatBirthDate(member.birthDate)}
-                      size="small"
-                      variant="outlined"
-                      sx={{ borderColor: 'divider', color: 'text.secondary' }}
+                      sx={{ borderColor: 'divider', color: 'text.secondary', fontSize: '0.68rem', height: 22 }}
                     />
                   </Stack>
 
-                  <Typography sx={{ color: 'text.secondary', fontSize: '0.88rem', lineHeight: 1.7 }}>
+                  <Typography
+                    sx={{
+                      color: 'text.secondary',
+                      fontSize: '0.78rem',
+                      lineHeight: 1.6,
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                    }}
+                  >
                     {member.bio}
                   </Typography>
                 </CardContent>

@@ -22,15 +22,15 @@ function Discography() {
           variant="h4"
           sx={{ color: 'text.primary', fontWeight: 800, mb: 1, textAlign: 'center', fontSize: { xs: '1.6rem', md: '2.1rem' } }}
         >
-          Discography
+          ALBUM
         </Typography>
         <Typography sx={{ color: 'text.secondary', textAlign: 'center', mb: { xs: 4, md: 6 } }}>
           데뷔부터 지금까지, NCT WISH의 앨범을 모두 모았어요 · 카드를 누르면 수록곡을 볼 수 있어요
         </Typography>
 
-        <Grid container spacing={{ xs: 2.5, md: 4 }}>
+        <Grid container spacing={{ xs: 2.5, md: 3.5 }}>
           {sortedAlbums.map((album) => (
-            <Grid key={album.id} size={{ xs: 6, sm: 6, md: 4 }}>
+            <Grid key={album.id} size={{ xs: 6, sm: 4, md: 3 }}>
               <AlbumCard album={album} onClick={() => setSelected(album)} />
             </Grid>
           ))}
