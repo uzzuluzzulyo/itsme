@@ -24,6 +24,14 @@ export const gatewayVideos = [
     category: '무대',
   },
   {
+    id: 'riku-ode-to-love-facecam',
+    title: "리쿠 페이스캠 'Ode to Love'",
+    youtubeId: 'PG58pjEUQgY',
+    memberId: 'riku',
+    category: '무대',
+    featured: true,
+  },
+  {
     id: 'yushi-wensu-nomchin',
     title: '웬수놈친',
     youtubeId: 'W8j-J2YRi1E',
