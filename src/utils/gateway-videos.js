@@ -73,4 +73,18 @@ export const gatewayVideos = [
     memberId: null,
     category: '예능',
   },
+  {
+    id: 'sleep-deprivation-danger',
+    title: '수면 부족이 위험한 이유',
+    youtubeId: '-alMhKcax6Q',
+    memberId: null,
+    category: '예능',
+  },
+  {
+    id: 'riku-compilation',
+    title: '안 본 사람은 있어도 한 번 본 사람 없는 리쿠 모음',
+    youtubeId: '_w6_x8Oc37E',
+    memberId: 'riku',
+    category: '예능',
+  },
 ];
